@@ -21,6 +21,7 @@
     "salesMonthly": "Monthly Sales",
     "reservationsMonthly": "Monthly Reservations",
     "customers": "Customers",
+    "baseInfo": "Basic Info",
     "settings": "Settings"
   },
   "sidebar": {
@@ -163,7 +164,82 @@
       "reservation": "Reservation",
       "notFound": "Not Found Page",
       "fontPicker": "Font Picker",
-      "languagePage": "Language Page"
+      "languagePage": "Language Page",
+      "baseInfo": "Base Information"
+    }
+  },
+  "baseInfo": {
+    "tabs": {
+      "info": "Information",
+      "amenities": "Amenities"
+    },
+    "sections": {
+      "basic": "Basic Information",
+      "address": "Address",
+      "contact": "Contact",
+      "hours": "Opening Hours",
+      "amenities": "Amenities",
+      "capacity": "Capacity"
+    },
+    "fields": {
+      "name": "Restaurant Name",
+      "logo": "Logo / Cover Photo",
+      "country": "Country",
+      "region": "Region",
+      "city": "City",
+      "streetNumber": "No.",
+      "streetName": "Street Name",
+      "additionalInfo": "Additional Info",
+      "phone": "Direct Phone",
+      "totalCapacity": "Total",
+      "indoorCapacity": "Indoor",
+      "outdoorCapacity": "Outdoor"
+    },
+    "placeholders": {
+      "restaurantName": "E.g: The Grand Bistro",
+      "streetNumber": "12",
+      "streetName": "Rue de Rivoli...",
+      "additionalInfo": "Building, floor, entry code...",
+      "phone": "01 23 45 67 89",
+      "search": "Search...",
+      "select": "Select...",
+      "selectRegionFirst": "Choose region first"
+    },
+    "days": {
+      "sat": "Saturday",
+      "sun": "Sunday",
+      "mon": "Monday",
+      "tue": "Tuesday",
+      "wed": "Wednesday",
+      "thu": "Thursday",
+      "fri": "Friday"
+    },
+    "amenityNames": {
+      "wifi": "Wi-Fi",
+      "playstation": "PlayStation",
+      "billiard": "Billiard",
+      "kidsPlay": "Kids Play Area",
+      "outdoor": "Outdoor Space",
+      "wheelchair": "Wheelchair Access"
+    },
+    "countryNames": {
+      "FR": "France"
+    },
+    "labels": {
+      "countryFixed": "fixed",
+      "closed": "Closed",
+      "save": "Save",
+      "saved": "Saved",
+      "changeImage": "Change Image",
+      "uploadLogoPrompt": "Upload logo or cover photo",
+      "uploadFormats": "JPG · PNG · WEBP",
+      "mapsTitle": "Google Maps",
+      "mapsNote": "API Key required to activate",
+      "noResults": "No results found",
+      "selectedCount": "selected",
+      "capacityNote": "Enter the number of seats per section.",
+      "capacityValid": "✓ Indoor + Outdoor matches total capacity",
+      "capacityMismatch": "⚠ Indoor + Outdoor ="
     }
   }
 }

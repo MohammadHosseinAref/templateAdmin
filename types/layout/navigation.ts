@@ -21,7 +21,7 @@ export interface SubItem {
 }
 
 export interface NavItemDef {
-  href: string;
+  href?: string;
   label: string;
   key: SidebarIconKey;
   children?: SubItem[];

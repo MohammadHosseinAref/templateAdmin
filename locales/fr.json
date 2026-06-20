@@ -21,6 +21,7 @@
     "salesMonthly": "Ventes mensuelles",
     "reservationsMonthly": "Réservations mensuelles",
     "customers": "Clients",
+    "baseInfo": "Infos de base",
     "settings": "Paramètres"
   },
   "sidebar": {
@@ -163,7 +164,82 @@
       "reservation": "Réservation",
       "notFound": "Page 404",
       "fontPicker": "Sélecteur de police",
-      "languagePage": "Page de langue"
+      "languagePage": "Page de langue",
+      "baseInfo": "Informations de base"
+    }
+  },
+  "baseInfo": {
+    "tabs": {
+      "info": "Informations",
+      "amenities": "Équipements"
+    },
+    "sections": {
+      "basic": "Informations de base",
+      "address": "Adresse",
+      "contact": "Contact",
+      "hours": "Horaires d'ouverture",
+      "amenities": "Équipements",
+      "capacity": "Capacité"
+    },
+    "fields": {
+      "name": "Nom du restaurant",
+      "logo": "Logo / Photo de couverture",
+      "country": "Pays",
+      "region": "Région",
+      "city": "Ville",
+      "streetNumber": "N°",
+      "streetName": "Nom de la rue",
+      "additionalInfo": "Informations complémentaires",
+      "phone": "Téléphone direct",
+      "totalCapacity": "Total",
+      "indoorCapacity": "Intérieur",
+      "outdoorCapacity": "Extérieur"
+    },
+    "placeholders": {
+      "restaurantName": "Ex: Restaurant Le Marais",
+      "streetNumber": "12",
+      "streetName": "Rue de Rivoli...",
+      "additionalInfo": "Bâtiment B, 2ème étage, code d'entrée...",
+      "phone": "01 23 45 67 89",
+      "search": "Rechercher...",
+      "select": "Sélectionner...",
+      "selectRegionFirst": "Choisir la région d'abord"
+    },
+    "days": {
+      "sat": "Samedi",
+      "sun": "Dimanche",
+      "mon": "Lundi",
+      "tue": "Mardi",
+      "wed": "Mercredi",
+      "thu": "Jeudi",
+      "fri": "Vendredi"
+    },
+    "amenityNames": {
+      "wifi": "Wi-Fi",
+      "playstation": "PlayStation",
+      "billiard": "Billard",
+      "kidsPlay": "Espace Jeux Enfants",
+      "outdoor": "Espace Extérieur",
+      "wheelchair": "Accès Fauteuil Roulant"
+    },
+    "countryNames": {
+      "FR": "France"
+    },
+    "labels": {
+      "countryFixed": "fixe",
+      "closed": "Fermé",
+      "save": "Enregistrer",
+      "saved": "Enregistré",
+      "changeImage": "Changer l'image",
+      "uploadLogoPrompt": "Télécharger logo ou photo de couverture",
+      "uploadFormats": "JPG · PNG · WEBP",
+      "mapsTitle": "Google Maps",
+      "mapsNote": "Clé API requise pour l'activation",
+      "noResults": "Aucun résultat",
+      "selectedCount": "sélectionné(s)",
+      "capacityNote": "Indiquez le nombre de places par section.",
+      "capacityValid": "✓ Intérieur + Extérieur correspond à la capacité totale",
+      "capacityMismatch": "⚠ Intérieur + Extérieur ="
     }
   }
 }

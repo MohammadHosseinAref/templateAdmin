@@ -21,6 +21,7 @@
     "salesMonthly": "فروش ماهانه",
     "reservationsMonthly": "رزرو ماهانه",
     "customers": "مشتریان",
+    "baseInfo": "اطلاعات پایه",
     "settings": "تنظیمات"
   },
   "sidebar": {
@@ -163,7 +164,82 @@
       "reservation": "رزرو",
       "notFound": "صفحه ۴۰۴",
       "fontPicker": "انتخاب فونت",
-      "languagePage": "صفحه زبان"
+      "languagePage": "صفحه زبان",
+      "baseInfo": "اطلاعات پایه"
+    }
+  },
+  "baseInfo": {
+    "tabs": {
+      "info": "اطلاعات",
+      "amenities": "امکانات"
+    },
+    "sections": {
+      "basic": "اطلاعات پایه",
+      "address": "آدرس",
+      "contact": "اطلاعات تماس",
+      "hours": "ساعات کاری",
+      "amenities": "امکانات",
+      "capacity": "ظرفیت"
+    },
+    "fields": {
+      "name": "نام رستوران",
+      "logo": "لوگو / تصویر کاور",
+      "country": "کشور",
+      "region": "استان (ناحیه)",
+      "city": "شهر",
+      "streetNumber": "شماره",
+      "streetName": "نام خیابان",
+      "additionalInfo": "اطلاعات تکمیلی",
+      "phone": "شماره تماس مستقیم",
+      "totalCapacity": "کل",
+      "indoorCapacity": "سرپوشیده",
+      "outdoorCapacity": "فضای باز"
+    },
+    "placeholders": {
+      "restaurantName": "مثال: رستوران آذربایجان",
+      "streetNumber": "۱۲",
+      "streetName": "خیابان ولیعصر...",
+      "additionalInfo": "طبقه، واحد، کد ورودی...",
+      "phone": "۰۱ ۲۳ ۴۵ ۶۷ ۸۹",
+      "search": "جستجو...",
+      "select": "انتخاب کنید",
+      "selectRegionFirst": "ابتدا استان را انتخاب کنید"
+    },
+    "days": {
+      "sat": "شنبه",
+      "sun": "یک‌شنبه",
+      "mon": "دوشنبه",
+      "tue": "سه‌شنبه",
+      "wed": "چهارشنبه",
+      "thu": "پنج‌شنبه",
+      "fri": "جمعه"
+    },
+    "amenityNames": {
+      "wifi": "Wi-Fi",
+      "playstation": "پلی‌استیشن",
+      "billiard": "بیلیارد",
+      "kidsPlay": "فضای بازی کودک",
+      "outdoor": "فضای باز",
+      "wheelchair": "دسترسی ویلچر"
+    },
+    "countryNames": {
+      "FR": "فرانسه"
+    },
+    "labels": {
+      "countryFixed": "ثابت",
+      "closed": "تعطیل",
+      "save": "ذخیره",
+      "saved": "ذخیره شد",
+      "changeImage": "تغییر تصویر",
+      "uploadLogoPrompt": "آپلود لوگو یا تصویر کاور",
+      "uploadFormats": "JPG · PNG · WEBP",
+      "mapsTitle": "Google Maps",
+      "mapsNote": "برای فعال‌سازی، API Key نیاز است",
+      "noResults": "نتیجه‌ای یافت نشد",
+      "selectedCount": "مورد انتخاب شده",
+      "capacityNote": "تعداد نفرات قابل پذیرش در هر بخش را وارد کنید.",
+      "capacityValid": "✓ جمع سرپوشیده و فضای باز با ظرفیت کل برابر است",
+      "capacityMismatch": "⚠ جمع سرپوشیده + فضای باز ="
     }
   }
 }

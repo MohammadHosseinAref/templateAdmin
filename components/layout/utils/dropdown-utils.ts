@@ -9,13 +9,22 @@ export function getDropdownStyle(
   const vw = window.innerWidth;
   const dropW = 320; // matches w-80
 
+  // On mobile, span full width — width overrides w-80 class
+  if (vw < 640) {
+    const top = rect.bottom + offset;
+    return {
+      position: 'fixed',
+      top,
+      left: 8,
+      width: vw - 16,
+      maxHeight: window.innerHeight - top - 8,
+    };
+  }
+
   if (direction === 'rtl') {
-    // In RTL the action buttons sit on the LEFT side of the screen.
-    // Anchor the dropdown's left edge to the button's left edge, clamped to viewport.
     const left = Math.max(4, Math.min(rect.left, vw - dropW - 4));
     return { position: 'fixed', top: rect.bottom + offset, left };
   }
-  // In LTR the action buttons sit on the RIGHT side.
   const right = Math.max(4, Math.min(vw - rect.right, vw - dropW - 4));
   return { position: 'fixed', top: rect.bottom + offset, right };
 }

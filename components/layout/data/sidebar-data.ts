@@ -17,6 +17,12 @@ export function getNavItems(t: LocaleData): NavItemDef[] {
   return [
     { href: '/', label: t.nav.dashboard, key: 'dashboard' },
     {
+      label: t.nav.baseInfo, key: 'settings',
+      children: [
+        { href: '/baseInfo', label: t.nav.baseInfo },
+      ],
+    },
+    {
       href: '/reservations', label: t.nav.reservations, key: 'calendar',
       children: [
         {

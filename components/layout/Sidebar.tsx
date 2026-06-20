@@ -11,7 +11,7 @@ import { useLocale } from '@/contexts/LocaleContext';
 
 export type { SidebarProps };
 
-// â”€â”€ Sidebar body â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€ Sidebar body â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 function SidebarBody({
   isCollapsed, direction, bgColor, textColor, pathname,
@@ -42,7 +42,7 @@ function SidebarBody({
 
   return (
     <>
-      {/* â”€â”€ Logo â”€â”€ */}
+      {/* â"€â"€ Logo â"€â"€ */}
       <div
         className={`flex items-center gap-3 flex-shrink-0 py-4 border-b ${isCollapsed ? 'flex-col px-3' : 'px-4'}`}
         style={{ borderColor: 'rgba(255,255,255,0.12)' }}
@@ -65,7 +65,7 @@ function SidebarBody({
         </button>
       </div>
 
-      {/* â”€â”€ Navigation â”€â”€ */}
+      {/* â"€â"€ Navigation â"€â"€ */}
       <div
         className="flex-1 overflow-y-auto sidebar-scroll"
         style={{
@@ -75,32 +75,45 @@ function SidebarBody({
       >
         <nav className="py-3 px-2" style={{ direction }}>
           {navItems.map(({ href, label, key, children }) => {
+            const itemId = href ?? key;
             const hasChildren = !!children?.length;
-            const isOpen = expanded.has(href);
-            const isActive = pathname === href
+            const isOpen = expanded.has(itemId);
+            const isActive = (!!href && pathname === href)
               || (children?.some((c) => pathname === c.href || c.children?.some((g) => pathname === g.href)) ?? false);
 
             return (
-              <div key={href}>
-                {/* â”€â”€ Level 1 â”€â”€ */}
+              <div key={itemId}>
+                {/* â"€â"€ Level 1 â"€â"€ */}
                 {hasChildren && !isCollapsed ? (
                   <div
                     className={`flex items-center rounded-xl mb-0.5 overflow-hidden transition-colors duration-150
                       ${isActive ? 'bg-teal-500' : 'hover:bg-white/10'}
                     `}
                   >
-                    <Link
-                      href={href}
-                      onClick={onLinkClick}
-                      className="flex-1 flex items-center gap-3 py-2.5 ps-3 min-w-0"
-                      style={{ color: isActive ? '#ffffff' : textColor }}
-                    >
-                      <Ico d={PATHS[key]} strokeWidth={1.6} />
-                      <span className="flex-1 text-sm font-medium truncate text-start">{label}</span>
-                    </Link>
+                    {href ? (
+                      <Link
+                        href={href}
+                        onClick={onLinkClick}
+                        className="flex-1 flex items-center gap-3 py-2.5 ps-3 min-w-0"
+                        style={{ color: isActive ? '#ffffff' : textColor }}
+                      >
+                        <Ico d={PATHS[key]} strokeWidth={1.6} />
+                        <span className="flex-1 text-sm font-medium truncate text-start">{label}</span>
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => toggleItem(itemId)}
+                        className="flex-1 flex items-center gap-3 py-2.5 ps-3 min-w-0 cursor-default"
+                        style={{ color: isActive ? '#ffffff' : textColor }}
+                      >
+                        <Ico d={PATHS[key]} strokeWidth={1.6} />
+                        <span className="flex-1 text-sm font-medium truncate text-start">{label}</span>
+                      </button>
+                    )}
                     <button
                       type="button"
-                      onClick={() => toggleItem(href)}
+                      onClick={() => toggleItem(itemId)}
                       className="flex-shrink-0 p-3 hover:bg-white/15 transition-colors"
                       style={{ color: isActive ? '#ffffff' : textColor }}
                       aria-label={isOpen ? t.sidebar.collapseSubmenu : t.sidebar.expandSubmenu}
@@ -112,7 +125,7 @@ function SidebarBody({
                       />
                     </button>
                   </div>
-                ) : (
+                ) : href ? (
                   <Link
                     href={href}
                     onClick={onLinkClick}
@@ -126,9 +139,9 @@ function SidebarBody({
                     <Ico d={PATHS[key]} strokeWidth={1.6} />
                     {!isCollapsed && <span className="flex-1 text-sm font-medium truncate">{label}</span>}
                   </Link>
-                )}
+                ) : null}
 
-                {/* â”€â”€ Level 2 â”€â”€ */}
+                {/* â"€â"€ Level 2 â"€â"€ */}
                 {hasChildren && !isCollapsed && isOpen && children && (
                   <div
                     className="ms-3 mb-1 border-s-2 ps-2"
@@ -190,7 +203,7 @@ function SidebarBody({
                             </Link>
                           )}
 
-                          {/* â”€â”€ Level 3 â”€â”€ */}
+                          {/* â"€â"€ Level 3 â"€â"€ */}
                           {hasGrand && isSubOpen && sub.children && (
                             <div
                               className="ms-4 mb-1 border-s ps-2"
@@ -229,7 +242,7 @@ function SidebarBody({
         </nav>
       </div>
 
-      {/* â”€â”€ Bottom color pickers â”€â”€ */}
+      {/* â"€â"€ Bottom color pickers â"€â"€ */}
       <div className="flex-shrink-0 border-t p-3" style={{ borderColor: 'rgba(255,255,255,0.12)' }}>
         {!isCollapsed && (
           <div className="px-1">
@@ -245,7 +258,7 @@ function SidebarBody({
   );
 }
 
-// â”€â”€ Main Sidebar component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€ Main Sidebar component â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 
 export default function Sidebar({
   direction, width, isCollapsed, bgColor, textColor,
@@ -298,7 +311,7 @@ export default function Sidebar({
 
   return (
     <>
-      {/* â”€â”€ Desktop: in-flow flex item â”€â”€ */}
+      {/* â"€â"€ Desktop: in-flow flex item â"€â"€ */}
       <aside
         className="relative hidden md:flex flex-col flex-shrink-0 overflow-hidden transition-[width] duration-300 h-full"
         style={{ width: `${displayW}px`, backgroundColor: bgColor, color: textColor }}
@@ -313,7 +326,7 @@ export default function Sidebar({
         <SidebarBody {...bodyProps} />
       </aside>
 
-      {/* â”€â”€ Mobile: fixed overlay â”€â”€ */}
+      {/* â"€â"€ Mobile: fixed overlay â"€â"€ */}
       {isMobileOpen && (
         <div className="md:hidden fixed inset-0 z-50">
           <div
