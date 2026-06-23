@@ -241,5 +241,64 @@
       "capacityValid": "✓ جمع سرپوشیده و فضای باز با ظرفیت کل برابر است",
       "capacityMismatch": "⚠ جمع سرپوشیده + فضای باز ="
     }
+  },
+  "tables": {
+    "sections": {
+      "viewer": "نقشه رستوران",
+      "list": "مدیریت میزها"
+    },
+    "fields": {
+      "name": "نام میز",
+      "capacity": "ظرفیت",
+      "description": "توضیحات"
+    },
+    "placeholders": {
+      "tableName": "مثال: میز VIP",
+      "tableDesc": "ویژگی‌ها، موقعیت، نکات..."
+    },
+    "labels": {
+      "uploadFloor": "آپلود تصویر پانوراما رستوران",
+      "uploadFormats": "PNG، JPG یا WEBP",
+      "changeImage": "تغییر تصویر",
+      "addMode": "افزودن میز",
+      "addTip": "روی محل میز در تصویر کلیک کنید",
+      "addPortalTip": "روی محل لینک در تصویر کلیک کنید",
+      "dragHint": "← بکشید برای چرخش →",
+      "free": "خالی",
+      "busy": "پر",
+      "deleteTable": "حذف میز",
+      "cancel": "انصراف",
+      "confirm": "تأیید",
+      "save": "ذخیره تغییرات",
+      "saved": "ذخیره شد",
+      "noTables": "هنوز میزی اضافه نشده — از نقشه رستوران میز اضافه کنید",
+      "persons": "نفر",
+      "newTable": "میز جدید",
+      "editTable": "ویرایش میز",
+      "tableLabel": "میز",
+      "enablePanorama": "فعال‌سازی چرخش (نمای پانوراما)",
+      "enablePanoramaDesc": "کاربران می‌توانند تصویر را به چپ و راست بکشند",
+      "scenes": "صحنه‌ها",
+      "addScene": "افزودن صحنه",
+      "sceneName": "نام صحنه",
+      "sceneNamePlaceholder": "مثال: طبقه اول",
+      "deleteScene": "حذف صحنه",
+      "noScene": "بدون لینک",
+      "linkedScene": "لینک به صحنه",
+      "linkedSceneDesc": "با کلیک روی این میز به صحنه انتخابی برو",
+      "addAnother": "افزودن میز دیگر",
+      "navigateTo": "رفتن به صحنه",
+      "noScenes": "هنوز صحنه‌ای ثبت نشده — از دکمه + صحنه اضافه کنید",
+      "uploadScene": "آپلود تصویر صحنه",
+      "preview": "پیش‌نمایش",
+      "exitPreview": "خروج از پیش‌نمایش",
+      "previewMode": "حالت پیش‌نمایش",
+      "tableInfo": "اطلاعات میز",
+      "description": "توضیحات",
+      "isPortal": "این هات‌اسپات فقط لینک است — نام و ظرفیت از صحنه مقصد گرفته می‌شود",
+    "savedScenes": "صحنه‌های ثبت‌شده",
+    "editScene": "ویرایش صحنه",
+    "newScene": "صحنه جدید"
+    }
   }
 }
