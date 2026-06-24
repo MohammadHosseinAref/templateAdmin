@@ -22,6 +22,7 @@
     "reservationsMonthly": "Réservations mensuelles",
     "customers": "Clients",
     "baseInfo": "Infos de base",
+    "stock": "Stock",
     "settings": "Paramètres"
   },
   "sidebar": {
@@ -165,7 +166,8 @@
       "notFound": "Page 404",
       "fontPicker": "Sélecteur de police",
       "languagePage": "Page de langue",
-      "baseInfo": "Informations de base"
+      "baseInfo": "Informations de base",
+      "stock": "Stock"
     }
   },
   "baseInfo": {
@@ -240,6 +242,51 @@
       "capacityNote": "Indiquez le nombre de places par section.",
       "capacityValid": "✓ Intérieur + Extérieur correspond à la capacité totale",
       "capacityMismatch": "⚠ Intérieur + Extérieur ="
+    }
+  },
+  "stock": {
+    "sections": {
+      "form": "Formulaire de stock",
+      "list": "Liste de stock"
+    },
+    "fields": {
+      "name": "Nom de matière",
+      "unit": "Unité de mesure",
+      "inventory": "Inventaire",
+      "minInventory": "Minimum d'inventaire pour notification",
+      "pricePerUnit": "Prix de chaque unité",
+      "dateAdded": "Date d'enregistrement",
+      "expiryDate": "Date d'expiration"
+    },
+    "units": ["kg", "g", "L", "cL", "mL", "pièce", "bouteille", "boîte", "sachet", "botte", "barquette", "douzaine", "caisse", "portion"],
+    "placeholders": {
+      "name": "ex: Huile d'olive",
+      "inventory": "0",
+      "minInventory": "0",
+      "pricePerUnit": "0.00",
+      "selectItem": "Sélectionner un article pour pré-remplir...",
+      "search": "Rechercher...",
+      "selectUnit": "Choisir une unité..."
+    },
+    "labels": {
+      "preSelect": "Pré-sélectionner depuis l'existant",
+      "new": "Nouveau",
+      "edit": "Modifier",
+      "save": "Enregistrer",
+      "saved": "Enregistré",
+      "noItems": "Aucun article",
+      "lowStock": "Stock faible",
+      "deselect": "Désélectionner",
+      "stockValue": "Valeur",
+      "add": "Ajouter",
+      "cancelEdit": "Annuler la modification",
+      "noExpiry": "Sans expiration",
+      "expired": "Expiré",
+      "expirySoon": "Expire bientôt",
+      "delete": "Supprimer",
+      "confirmDelete": "Confirmer la suppression ?",
+      "cancel": "Annuler",
+      "duplicateName": "Une matière avec ce nom existe déjà"
     }
   },
   "tables": {

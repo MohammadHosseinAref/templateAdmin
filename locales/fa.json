@@ -22,6 +22,7 @@
     "reservationsMonthly": "رزرو ماهانه",
     "customers": "مشتریان",
     "baseInfo": "اطلاعات پایه",
+    "stock": "انبارداری",
     "settings": "تنظیمات"
   },
   "sidebar": {
@@ -165,7 +166,8 @@
       "notFound": "صفحه ۴۰۴",
       "fontPicker": "انتخاب فونت",
       "languagePage": "صفحه زبان",
-      "baseInfo": "اطلاعات پایه"
+      "baseInfo": "اطلاعات پایه",
+      "stock": "انبارداری"
     }
   },
   "baseInfo": {
@@ -240,6 +242,51 @@
       "capacityNote": "تعداد نفرات قابل پذیرش در هر بخش را وارد کنید.",
       "capacityValid": "✓ جمع سرپوشیده و فضای باز با ظرفیت کل برابر است",
       "capacityMismatch": "⚠ جمع سرپوشیده + فضای باز ="
+    }
+  },
+  "stock": {
+    "sections": {
+      "form": "فرم انبار",
+      "list": "لیست موجودی"
+    },
+    "fields": {
+      "name": "نام ماده",
+      "unit": "واحد اندازه‌گیری",
+      "inventory": "موجودی",
+      "minInventory": "حداقل موجودی برای اعلان",
+      "pricePerUnit": "قیمت هر واحد",
+      "dateAdded": "تاریخ ثبت",
+      "expiryDate": "تاریخ انقضا"
+    },
+    "units": ["کیلوگرم", "گرم", "لیتر", "سانتی‌لیتر", "میلی‌لیتر", "عدد", "بطری", "قوطی", "کیسه", "دسته", "سینی", "دوجین", "صندوق", "پرس"],
+    "placeholders": {
+      "name": "مثال: روغن زیتون",
+      "inventory": "0",
+      "minInventory": "0",
+      "pricePerUnit": "0.00",
+      "selectItem": "برای پیش‌انتخاب یک ماده انتخاب کنید...",
+      "search": "جستجو...",
+      "selectUnit": "انتخاب واحد..."
+    },
+    "labels": {
+      "preSelect": "پیش‌انتخاب از موجودی",
+      "new": "جدید",
+      "edit": "ویرایش",
+      "save": "ذخیره",
+      "saved": "ذخیره شد",
+      "noItems": "هیچ موردی وجود ندارد",
+      "lowStock": "موجودی کم",
+      "deselect": "لغو انتخاب",
+      "stockValue": "ارزش",
+      "add": "اضافه کردن",
+      "cancelEdit": "لغو ویرایش",
+      "noExpiry": "بدون انقضا",
+      "expired": "منقضی",
+      "expirySoon": "به زودی منقضی",
+      "delete": "حذف",
+      "confirmDelete": "تأیید حذف؟",
+      "cancel": "انصراف",
+      "duplicateName": "ماده‌ای با این نام قبلاً وجود دارد"
     }
   },
   "tables": {

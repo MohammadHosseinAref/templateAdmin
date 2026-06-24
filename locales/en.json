@@ -22,6 +22,7 @@
     "reservationsMonthly": "Monthly Reservations",
     "customers": "Customers",
     "baseInfo": "Basic Info",
+    "stock": "Stock",
     "settings": "Settings"
   },
   "sidebar": {
@@ -165,7 +166,8 @@
       "notFound": "Not Found Page",
       "fontPicker": "Font Picker",
       "languagePage": "Language Page",
-      "baseInfo": "Base Information"
+      "baseInfo": "Base Information",
+      "stock": "Stock"
     }
   },
   "baseInfo": {
@@ -240,6 +242,51 @@
       "capacityNote": "Enter the number of seats per section.",
       "capacityValid": "✓ Indoor + Outdoor matches total capacity",
       "capacityMismatch": "⚠ Indoor + Outdoor ="
+    }
+  },
+  "stock": {
+    "sections": {
+      "form": "Stock Form",
+      "list": "Stock List"
+    },
+    "fields": {
+      "name": "Material Name",
+      "unit": "Unit of Measure",
+      "inventory": "Inventory",
+      "minInventory": "Minimum Inventory for Notification",
+      "pricePerUnit": "Price per Unit",
+      "dateAdded": "Registration Date",
+      "expiryDate": "Expiry Date"
+    },
+    "units": ["kg", "g", "L", "cL", "mL", "piece", "bottle", "can", "bag", "bunch", "tray", "dozen", "crate", "portion"],
+    "placeholders": {
+      "name": "e.g. Olive Oil",
+      "inventory": "0",
+      "minInventory": "0",
+      "pricePerUnit": "0.00",
+      "selectItem": "Select an item to pre-fill...",
+      "search": "Search...",
+      "selectUnit": "Select unit..."
+    },
+    "labels": {
+      "preSelect": "Pre-fill from existing",
+      "new": "New",
+      "edit": "Edit",
+      "save": "Save",
+      "saved": "Saved",
+      "noItems": "No items yet",
+      "lowStock": "Low stock",
+      "deselect": "Deselect",
+      "stockValue": "Value",
+      "add": "Add",
+      "cancelEdit": "Cancel Edit",
+      "noExpiry": "No expiry",
+      "expired": "Expired",
+      "expirySoon": "Expiring soon",
+      "delete": "Delete",
+      "confirmDelete": "Confirm delete?",
+      "cancel": "Cancel",
+      "duplicateName": "A material with this name already exists"
     }
   },
   "tables": {
