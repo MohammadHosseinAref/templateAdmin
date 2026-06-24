@@ -167,7 +167,8 @@
       "fontPicker": "Sélecteur de police",
       "languagePage": "Page de langue",
       "baseInfo": "Informations de base",
-      "stock": "Stock"
+      "stock": "Stock",
+      "menu": "Menu"
     }
   },
   "baseInfo": {
@@ -288,6 +289,81 @@
       "cancel": "Annuler",
       "duplicateName": "Une matière avec ce nom existe déjà"
     }
+  },
+  "menu": {
+    "sections": {
+      "form": "Nouveau plat",
+      "list": "Plats",
+      "preview": "Aperçu de la carte",
+      "category": "Catégorie",
+      "recipe": "Recette",
+      "status": "Disponibilité"
+    },
+    "fields": {
+      "name": "Nom du plat",
+      "category": "Catégorie principale",
+      "subCategory": "Sous-catégorie",
+      "subSubCategory": "Sous-sous-catégorie",
+      "price": "Prix (€)",
+      "description": "Description",
+      "photo": "Photo",
+      "tags": "Tags",
+      "recipe": "Ingrédients",
+      "available": "Disponible",
+      "prepTime": "Temps de préparation",
+      "visible": "Visible dans le menu"
+    },
+    "placeholders": {
+      "name": "ex: Salade César",
+      "price": "0.00",
+      "description": "Décrivez le plat...",
+      "addCategory": "Nouvelle catégorie",
+      "addSub": "Nouvelle sous-catégorie",
+      "addTag": "Nouveau tag",
+      "selectStock": "Sélectionner un ingrédient...",
+      "quantity": "Qté",
+      "noCategory": "Sans catégorie",
+      "search": "Rechercher...",
+      "addSubSub": "Nouvelle sous-sous-catégorie",
+      "selectDish": "Sélectionner un plat à copier...",
+      "importRecipeFrom": "Importer la recette d'un autre plat..."
+    },
+    "labels": {
+      "add": "Ajouter",
+      "edit": "Modifier",
+      "save": "Enregistrer",
+      "saved": "Enregistré",
+      "cancel": "Annuler",
+      "cancelEdit": "Annuler la modification",
+      "delete": "Supprimer",
+      "confirmDelete": "Confirmer la suppression ?",
+      "noItems": "Aucun plat",
+      "noStock": "Aucun ingrédient disponible",
+      "addIngredient": "Ajouter",
+      "prepTimeUnit": "min",
+      "addCategory": "+ Catégorie",
+      "addSub": "+ Sous-catégorie",
+      "addSubSub": "+ Sous-sous-catégorie",
+      "duplicateName": "Un plat avec ce nom existe déjà",
+      "noPhoto": "Aucune photo",
+      "uploadPhoto": "Télécharger une photo",
+      "changePhoto": "Changer la photo",
+      "previewTitle": "Aperçu de la carte",
+      "clearCategory": "Effacer",
+      "noRecipe": "Aucun ingrédient ajouté",
+      "viewRecipe": "Voir les ingrédients",
+      "hideRecipe": "Masquer",
+      "inService": "En service",
+      "outOfService": "Hors service",
+      "shownOnMenu": "Affiché dans la carte",
+      "hiddenFromMenu": "Non affiché",
+      "unavailable": "Indisponible",
+      "dragToSort": "Glisser pour prioriser",
+      "preSelect": "Pré-remplir depuis un plat existant",
+      "importRecipe": "Importer"
+    },
+    "defaultCategories": ["Entrée", "Plat principal", "Dessert", "Boisson"],
+    "defaultTags": ["Végétarien", "Vegan", "Épicé", "Sans gluten", "Sans lactose", "Halal", "Populaire", "Nouveau"]
   },
   "tables": {
     "sections": { "viewer": "Plan du restaurant", "list": "Gestion des tables" },

@@ -167,7 +167,8 @@
       "fontPicker": "Font Picker",
       "languagePage": "Language Page",
       "baseInfo": "Base Information",
-      "stock": "Stock"
+      "stock": "Stock",
+      "menu": "Menu"
     }
   },
   "baseInfo": {
@@ -288,6 +289,81 @@
       "cancel": "Cancel",
       "duplicateName": "A material with this name already exists"
     }
+  },
+  "menu": {
+    "sections": {
+      "form": "New Dish",
+      "list": "Dishes",
+      "preview": "Menu Card Preview",
+      "category": "Category",
+      "recipe": "Recipe",
+      "status": "Availability"
+    },
+    "fields": {
+      "name": "Dish Name",
+      "category": "Main Category",
+      "subCategory": "Sub-category",
+      "subSubCategory": "Sub-sub-category",
+      "price": "Price (€)",
+      "description": "Description",
+      "photo": "Photo",
+      "tags": "Tags",
+      "recipe": "Ingredients",
+      "available": "Available",
+      "prepTime": "Preparation Time",
+      "visible": "Visible on Menu"
+    },
+    "placeholders": {
+      "name": "e.g. Caesar Salad",
+      "price": "0.00",
+      "description": "Describe the dish...",
+      "addCategory": "New category",
+      "addSub": "New sub-category",
+      "addTag": "New tag",
+      "selectStock": "Select an ingredient...",
+      "quantity": "Qty",
+      "noCategory": "No category",
+      "search": "Search...",
+      "addSubSub": "New sub-sub-category",
+      "selectDish": "Select a dish to copy...",
+      "importRecipeFrom": "Import recipe from another dish..."
+    },
+    "labels": {
+      "add": "Add",
+      "edit": "Edit",
+      "save": "Save",
+      "saved": "Saved",
+      "cancel": "Cancel",
+      "cancelEdit": "Cancel Edit",
+      "delete": "Delete",
+      "confirmDelete": "Confirm delete?",
+      "noItems": "No dishes yet",
+      "noStock": "No ingredients available",
+      "addIngredient": "Add",
+      "prepTimeUnit": "min",
+      "addCategory": "+ Category",
+      "addSub": "+ Sub-category",
+      "addSubSub": "+ Sub-sub-category",
+      "duplicateName": "A dish with this name already exists",
+      "noPhoto": "No photo",
+      "uploadPhoto": "Upload a photo",
+      "changePhoto": "Change photo",
+      "previewTitle": "Menu Card Preview",
+      "clearCategory": "Clear",
+      "noRecipe": "No ingredients added",
+      "viewRecipe": "View ingredients",
+      "hideRecipe": "Hide",
+      "inService": "In service",
+      "outOfService": "Out of service",
+      "shownOnMenu": "Shown on menu",
+      "hiddenFromMenu": "Hidden from menu",
+      "unavailable": "Unavailable",
+      "dragToSort": "Drag to prioritize",
+      "preSelect": "Pre-fill from existing dish",
+      "importRecipe": "Import"
+    },
+    "defaultCategories": ["Starter", "Main Course", "Dessert", "Drink"],
+    "defaultTags": ["Vegetarian", "Vegan", "Spicy", "Gluten-free", "Lactose-free", "Halal", "Popular", "New"]
   },
   "tables": {
     "sections": { "viewer": "Floor Plan", "list": "Manage Tables" },

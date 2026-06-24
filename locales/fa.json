@@ -167,7 +167,8 @@
       "fontPicker": "انتخاب فونت",
       "languagePage": "صفحه زبان",
       "baseInfo": "اطلاعات پایه",
-      "stock": "انبارداری"
+      "stock": "انبارداری",
+      "menu": "منو"
     }
   },
   "baseInfo": {
@@ -288,6 +289,81 @@
       "cancel": "انصراف",
       "duplicateName": "ماده‌ای با این نام قبلاً وجود دارد"
     }
+  },
+  "menu": {
+    "sections": {
+      "form": "غذای جدید",
+      "list": "غذاها",
+      "preview": "پیش‌نمایش کارت منو",
+      "category": "دسته‌بندی",
+      "recipe": "دستور پخت",
+      "status": "وضعیت دسترسی"
+    },
+    "fields": {
+      "name": "نام غذا",
+      "category": "دسته‌بندی اصلی",
+      "subCategory": "زیردسته",
+      "subSubCategory": "زیر-زیردسته",
+      "price": "قیمت (€)",
+      "description": "توضیحات",
+      "photo": "تصویر",
+      "tags": "برچسب‌ها",
+      "recipe": "مواد اولیه",
+      "available": "در دسترس",
+      "prepTime": "زمان آماده‌سازی",
+      "visible": "نمایش در منو"
+    },
+    "placeholders": {
+      "name": "مثال: سالاد سزار",
+      "price": "0.00",
+      "description": "غذا را توصیف کنید...",
+      "addCategory": "دسته‌بندی جدید",
+      "addSub": "زیردسته جدید",
+      "addTag": "برچسب جدید",
+      "selectStock": "انتخاب ماده اولیه...",
+      "quantity": "مقدار",
+      "noCategory": "بدون دسته‌بندی",
+      "search": "جستجو...",
+      "addSubSub": "زیر-زیردسته جدید",
+      "selectDish": "انتخاب غذا برای کپی...",
+      "importRecipeFrom": "استفاده از دستور پخت غذای دیگر..."
+    },
+    "labels": {
+      "add": "اضافه کردن",
+      "edit": "ویرایش",
+      "save": "ذخیره",
+      "saved": "ذخیره شد",
+      "cancel": "انصراف",
+      "cancelEdit": "لغو ویرایش",
+      "delete": "حذف",
+      "confirmDelete": "تأیید حذف؟",
+      "noItems": "غذایی ثبت نشده",
+      "noStock": "ماده اولیه‌ای یافت نشد",
+      "addIngredient": "افزودن",
+      "prepTimeUnit": "دقیقه",
+      "addCategory": "+ دسته‌بندی",
+      "addSub": "+ زیردسته",
+      "addSubSub": "+ زیر-زیردسته",
+      "duplicateName": "غذایی با این نام قبلاً وجود دارد",
+      "noPhoto": "بدون تصویر",
+      "uploadPhoto": "آپلود تصویر",
+      "changePhoto": "تغییر تصویر",
+      "previewTitle": "پیش‌نمایش کارت منو",
+      "clearCategory": "پاک کردن",
+      "noRecipe": "هنوز موادی اضافه نشده",
+      "viewRecipe": "مشاهده مواد اولیه",
+      "hideRecipe": "پنهان کردن",
+      "inService": "در سرویس",
+      "outOfService": "خارج از سرویس",
+      "shownOnMenu": "نمایش در منو",
+      "hiddenFromMenu": "پنهان در منو",
+      "unavailable": "ناموجود",
+      "dragToSort": "بکشید برای اولویت‌بندی",
+      "preSelect": "پیش‌پر از غذای موجود",
+      "importRecipe": "وارد کردن"
+    },
+    "defaultCategories": ["پیش‌غذا", "غذای اصلی", "دسر", "نوشیدنی"],
+    "defaultTags": ["گیاهی", "وگان", "تند", "بدون گلوتن", "بدون لاکتوز", "حلال", "پرطرفدار", "جدید"]
   },
   "tables": {
     "sections": {
