@@ -6,85 +6,8 @@ import { Card, Field } from '@/components/ui/card';
 import { inputCls, textareaCls } from '@/components/ui/styles';
 import SearchSelect from '@/components/ui/SearchSelect';
 import { useLocale } from '@/contexts/LocaleContext';
-
-/* ── Toggle switch ─────────────────────────────────────────────── */
-function Toggle({
-  value,
-  onChange,
-  colorOn = '#14b8a6',
-}: {
-  value: boolean;
-  onChange: (v: boolean) => void;
-  colorOn?: string;
-}) {
-  return (
-    <button
-      type="button"
-      role="switch"
-      aria-checked={value}
-      onClick={() => onChange(!value)}
-      className="relative flex-shrink-0 rounded-full cursor-pointer focus:outline-none"
-      style={{
-        width: 48,
-        height: 28,
-        backgroundColor: value ? colorOn : '#94a3b8',
-        transition: 'background-color 0.25s ease',
-        border: 'none',
-        padding: 0,
-      }}
-    >
-      <span
-        className="block rounded-full bg-white"
-        style={{
-          width: 22,
-          height: 22,
-          position: 'absolute',
-          top: 3,
-          left: 3,
-          boxShadow: '0 1px 4px rgba(0,0,0,0.25)',
-          transform: value ? 'translateX(20px)' : 'translateX(0px)',
-          transition: 'transform 0.25s ease',
-        }}
-      />
-    </button>
-  );
-}
-
-/* ── Inline add input ──────────────────────────────────────────── */
-function InlineAdd({ placeholder, onAdd, onCancel }: {
-  placeholder: string;
-  onAdd: (v: string) => void;
-  onCancel: () => void;
-}) {
-  const [val, setVal] = useState('');
-  function submit() {
-    const trimmed = val.trim();
-    if (trimmed) { onAdd(trimmed); setVal(''); }
-  }
-  return (
-    <div className="flex gap-1.5 items-center">
-      <input
-        autoFocus
-        type="text"
-        value={val}
-        onChange={(e) => setVal(e.target.value)}
-        onKeyDown={(e) => { if (e.key === 'Enter') submit(); if (e.key === 'Escape') onCancel(); }}
-        placeholder={placeholder}
-        className="flex-1 bg-slate-50 dark:bg-slate-700 border border-teal-300 dark:border-teal-700 text-slate-700 dark:text-slate-200 placeholder:text-slate-400 text-sm rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-2 focus:ring-teal-500/50"
-      />
-      <button type="button" onClick={submit} className="text-teal-600 dark:text-teal-400 hover:text-teal-700 p-1">
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-        </svg>
-      </button>
-      <button type="button" onClick={onCancel} className="text-slate-400 hover:text-slate-600 p-1">
-        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-  );
-}
+import { makeSetField } from '@/lib/formUtils';
+import { Toggle, InlineAdd } from '@/components/ui/FormWidgets';
 
 /* ── Main component ────────────────────────────────────────────── */
 export default function MenuForm({
@@ -94,12 +17,13 @@ export default function MenuForm({
   categories,
   allTags,
   stockItems,
+  branches,
   onDraftChange,
   onAddCategory,
   onAddSub,
   onAddSubSub,
   onAddTag,
-  error,
+  fieldErrors,
 }: MenuFormProps) {
   const t = useLocale().menu;
   const isEditMode = editId !== null;
@@ -127,9 +51,7 @@ export default function MenuForm({
   const photoRef = useRef<HTMLInputElement>(null);
 
   /* helpers */
-  function set<K extends keyof MenuItemForm>(key: K, val: MenuItemForm[K]) {
-    onDraftChange({ ...draft, [key]: val });
-  }
+  const set = makeSetField(draft, onDraftChange);
 
   const selectedCat = categories.find((c) => c.id === draft.categoryId) ?? null;
   const selectedSub = selectedCat?.subs.find((s) => s.name === draft.subCategory) ?? null;
@@ -254,7 +176,7 @@ export default function MenuForm({
             {preSelectName && (
               <button
                 type="button"
-                onClick={() => { setPreSelectName(''); onDraftChange({ name: '', categoryId: '', subCategory: '', subSubCategory: '', price: 0, description: '', photo: '', tags: [], recipe: [], available: true, prepTime: 0, visible: true }); }}
+                onClick={() => { setPreSelectName(''); onDraftChange({ name: '', categoryId: '', subCategory: '', subSubCategory: '', price: 0, description: '', photo: '', tags: [], recipe: [], available: true, prepTime: 0, visible: true, branches: [] }); }}
                 className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 flex-shrink-0 text-lg leading-none"
               >
                 ×
@@ -291,15 +213,14 @@ export default function MenuForm({
       {/* ── Informations de base ─────────────────────────────── */}
       <Card title={isEditMode ? `${t.labels.edit} — ${draft.name}` : t.sections.form}>
 
-        <Field label={t.fields.name} required>
+        <Field label={t.fields.name} required error={fieldErrors.name}>
           <input
             type="text"
-            className={`${inputCls} ${error ? 'border-red-400 dark:border-red-500' : ''}`}
+            className={inputCls}
             placeholder={t.placeholders.name}
             value={draft.name}
             onChange={(e) => set('name', e.target.value)}
           />
-          {error && <p className="text-xs text-red-500 dark:text-red-400 mt-1">{error}</p>}
         </Field>
 
         {/* 3-level category */}
@@ -696,6 +617,36 @@ export default function MenuForm({
             value={draft.prepTime || ''}
             onChange={(e) => set('prepTime', Number(e.target.value))} />
         </Field>
+
+        {branches.length > 0 && (
+          <Field label={t.fields.branches}>
+            <div className="flex flex-wrap gap-2">
+              {branches.map((branch) => {
+                const selected = draft.branches.includes(branch);
+                return (
+                  <button key={branch} type="button"
+                    onClick={() => set('branches', selected ? draft.branches.filter((b) => b !== branch) : [...draft.branches, branch])}
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm font-medium transition-all"
+                    style={{ backgroundColor: selected ? '#14b8a615' : 'transparent', color: selected ? '#0d9488' : '#94a3b8', border: `1.5px solid ${selected ? '#14b8a6' : '#cbd5e1'}` }}>
+                    <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={selected ? 2.5 : 1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                    </svg>
+                    {branch}
+                    {selected && (
+                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+            {draft.branches.length === 0 && (
+              <p className="text-xs text-amber-500 dark:text-amber-400 mt-1">{t.labels.allBranches}</p>
+            )}
+          </Field>
+        )}
 
       </Card>
 

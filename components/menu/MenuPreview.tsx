@@ -120,6 +120,20 @@ export default function MenuPreview({ draft, categories, stockItems }: MenuPrevi
         </div>
       )}
 
+      {/* Branches */}
+      {draft.branches.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 pt-1 border-t border-slate-100 dark:border-slate-700">
+          {draft.branches.map((b) => (
+            <span key={b} className="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800">
+              <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0zM19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+              </svg>
+              {b}
+            </span>
+          ))}
+        </div>
+      )}
+
       {/* Status badges */}
       <div className="flex gap-2 flex-wrap pt-1 border-t border-slate-100 dark:border-slate-700">
         <span className={`inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-lg font-medium ${

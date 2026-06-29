@@ -6,6 +6,8 @@ import { STOCK_FORM_DEFAULTS } from '@/types/stock';
 import { useLocale } from '@/contexts/LocaleContext';
 import StockForm from './StockForm';
 import StockList from './StockList';
+import ErrorModal from '@/components/ui/ErrorModal';
+import { validateFields } from '@/lib/formUtils';
 
 function todayStr(): string {
   return new Date().toISOString().split('T')[0];
@@ -36,12 +38,19 @@ export default function StockSettings() {
   const [draft, setDraft]           = useState<StockItemForm>(freshDraft);
   const [saved, setSaved]           = useState(false);
   const [formError, setFormError]   = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
+  const VALIDATION_RULES: Array<{ key: keyof StockItemForm; message: string }> = [
+    { key: 'name', message: t.labels.nameRequired },
+    { key: 'unit', message: t.labels.unitRequired },
+  ];
 
   function resetForm() {
     setSelectedId(null);
     setEditId(null);
     setDraft(freshDraft());
     setFormError(null);
+    setFieldErrors({});
   }
 
   function fillDraft(id: string) {
@@ -54,6 +63,7 @@ export default function StockSettings() {
   function handleSelectId(id: string | null) {
     setEditId(null);
     setFormError(null);
+    setFieldErrors({});
     setSelectedId(id);
     if (id === null) setDraft(freshDraft());
     else fillDraft(id);
@@ -62,6 +72,7 @@ export default function StockSettings() {
   function handleEdit(id: string) {
     setSelectedId(null);
     setFormError(null);
+    setFieldErrors({});
     setEditId(id);
     fillDraft(id);
   }
@@ -72,11 +83,12 @@ export default function StockSettings() {
 
   function handleDraftChange(next: StockItemForm) {
     setDraft(next);
-    if (formError) setFormError(null);
+    if (Object.keys(fieldErrors).length > 0) setFieldErrors(validateFields(next, VALIDATION_RULES));
   }
 
   function handleSave() {
-    if (!draft.name.trim()) return;
+    const errors = validateFields(draft, VALIDATION_RULES);
+    if (Object.keys(errors).length > 0) { setFieldErrors(errors); setFormError(t.labels.requiredFields); return; }
 
     const duplicate = data.items.some(
       (i) =>
@@ -108,7 +120,9 @@ export default function StockSettings() {
   }
 
   return (
-    <div className="px-3 pt-2 pb-8 space-y-4">
+    <>
+      {formError && <ErrorModal message={formError} onClose={() => setFormError(null)} />}
+      <div className="px-3 pt-2 pb-8 space-y-4">
       <StockForm
         items={data.items}
         selectedId={selectedId}
@@ -119,7 +133,7 @@ export default function StockSettings() {
         onDraftChange={handleDraftChange}
         onSave={handleSave}
         saved={saved}
-        error={formError}
+        fieldErrors={fieldErrors}
       />
       <StockList
         items={data.items}
@@ -129,6 +143,7 @@ export default function StockSettings() {
         onEdit={handleEdit}
         onDelete={handleDelete}
       />
-    </div>
+      </div>
+    </>
   );
 }

@@ -10,10 +10,12 @@ export function Card({ title, children }: { title: string; children: React.React
 export function Field({
   label,
   required,
+  error,
   children,
 }: {
   label: string;
   required?: boolean;
+  error?: string;
   children: React.ReactNode;
 }) {
   return (
@@ -22,7 +24,10 @@ export function Field({
         {label}
         {required && <span className="text-red-500 mr-1">*</span>}
       </label>
-      {children}
+      <div className={error ? '[&_input]:border-red-400 [&_select]:border-red-400 [&_textarea]:border-red-400' : ''}>
+        {children}
+      </div>
+      {error && <p className="text-xs text-red-500">{error}</p>}
     </div>
   );
 }

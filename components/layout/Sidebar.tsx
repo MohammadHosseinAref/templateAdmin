@@ -149,32 +149,48 @@ function SidebarBody({
                   >
                     {children.map((sub) => {
                       const hasGrand = !!sub.children?.length;
-                      const isSubActive = pathname === sub.href;
-                      const isSubOpen = subExpanded.has(sub.href);
+                      const isSubActive = !!sub.href && pathname === sub.href;
+                      const subKey = sub.href ?? sub.label;
+                      const isSubOpen = subExpanded.has(subKey);
 
                       return (
-                        <div key={sub.href}>
+                        <div key={subKey}>
                           {hasGrand ? (
                             <div
                               className={`flex items-center rounded-lg mb-0.5 overflow-hidden transition-colors duration-150
                                 ${isSubActive ? 'bg-white/20' : 'hover:bg-white/10'}
                               `}
                             >
-                              <Link
-                                href={sub.href}
-                                onClick={onLinkClick}
-                                className="flex-1 flex items-center gap-2 py-2 ps-3 text-sm min-w-0"
-                                style={{ color: textColor }}
-                              >
-                                <span
-                                  className="w-1 h-1 rounded-full flex-shrink-0"
-                                  style={{ backgroundColor: textColor, opacity: 0.5 }}
-                                />
-                                <span className={`truncate ${isSubActive ? 'font-semibold' : ''}`}>{sub.label}</span>
-                              </Link>
+                              {sub.href ? (
+                                <Link
+                                  href={sub.href}
+                                  onClick={onLinkClick}
+                                  className="flex-1 flex items-center gap-2 py-2 ps-3 text-sm min-w-0"
+                                  style={{ color: textColor }}
+                                >
+                                  <span
+                                    className="w-1 h-1 rounded-full flex-shrink-0"
+                                    style={{ backgroundColor: textColor, opacity: 0.5 }}
+                                  />
+                                  <span className={`truncate ${isSubActive ? 'font-semibold' : ''}`}>{sub.label}</span>
+                                </Link>
+                              ) : (
+                                <button
+                                  type="button"
+                                  onClick={() => toggleSubItem(subKey)}
+                                  className="flex-1 flex items-center gap-2 py-2 ps-3 text-sm min-w-0"
+                                  style={{ color: textColor }}
+                                >
+                                  <span
+                                    className="w-1 h-1 rounded-full flex-shrink-0"
+                                    style={{ backgroundColor: textColor, opacity: 0.5 }}
+                                  />
+                                  <span className="truncate">{sub.label}</span>
+                                </button>
+                              )}
                               <button
                                 type="button"
-                                onClick={() => toggleSubItem(sub.href)}
+                                onClick={() => toggleSubItem(subKey)}
                                 className="flex-shrink-0 px-2.5 py-2 hover:bg-white/15 transition-colors"
                                 style={{ color: textColor }}
                                 aria-label={isSubOpen ? t.sidebar.collapse : t.sidebar.expand}
@@ -188,7 +204,7 @@ function SidebarBody({
                             </div>
                           ) : (
                             <Link
-                              href={sub.href}
+                              href={sub.href!}
                               onClick={onLinkClick}
                               className={`flex items-center gap-2 rounded-lg py-2 px-3 text-sm transition-all duration-150
                                 ${isSubActive ? 'bg-white/20 font-semibold' : 'hover:bg-white/10 active:bg-white/15'}

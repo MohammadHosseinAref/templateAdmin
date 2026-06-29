@@ -10,6 +10,7 @@ export interface BaseInfoProps {
   onChange: (data: BaseInfoData) => void;
   onSave: () => void;
   saved: boolean;
+  fieldErrors: Record<string, string>;
 }
 
 export interface AmenitiesProps {

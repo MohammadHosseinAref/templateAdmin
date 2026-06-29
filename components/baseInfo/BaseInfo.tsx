@@ -11,16 +11,16 @@ import SearchSelect from '@/components/ui/SearchSelect';
 import CountrySelect from './CountrySelect';
 import Pill from '@/components/layout/ui/Pill';
 import { useLocale } from '@/contexts/LocaleContext';
+import { makeSetField } from '@/lib/formUtils';
+import { SaveProgress } from '@/components/ui/FormWidgets';
 
-export default function BaseInfo({ data, onChange, onSave, saved }: BaseInfoProps) {
+export default function BaseInfo({ data, onChange, onSave, saved, fieldErrors }: BaseInfoProps) {
   const t = useLocale().baseInfo;
   const logoRef = useRef<HTMLInputElement>(null);
 
   const DAYS = DAY_KEYS.map((key) => ({ key, label: t.days[key] }));
 
-  function set<K extends keyof BaseInfoData>(key: K, val: BaseInfoData[K]) {
-    onChange({ ...data, [key]: val });
-  }
+  const set = makeSetField(data, onChange);
 
   function setAddr(key: keyof BaseInfoData['address'], val: string) {
     onChange({ ...data, address: { ...data.address, [key]: val } });
@@ -58,7 +58,7 @@ export default function BaseInfo({ data, onChange, onSave, saved }: BaseInfoProp
         <div className="space-y-4">
 
           <Card title={t.sections.basic}>
-            <Field label={t.fields.name} required>
+            <Field label={t.fields.name} required error={fieldErrors.name}>
               <input
                 type="text"
                 className={inputCls}
@@ -267,10 +267,12 @@ export default function BaseInfo({ data, onChange, onSave, saved }: BaseInfoProp
       <button
         type="button"
         onClick={onSave}
-        className={`w-full py-3 text-sm font-semibold rounded-2xl transition-colors ${
+        disabled={saved}
+        className={`relative overflow-hidden w-full py-3 text-sm font-semibold rounded-2xl transition-colors disabled:cursor-not-allowed ${
           saved ? 'bg-green-500 text-white' : 'bg-teal-500 hover:bg-teal-600 active:bg-teal-700 text-white'
         }`}
       >
+        {saved && <SaveProgress />}
         {saved ? `✓ ${t.labels.saved}` : t.labels.save}
       </button>
 

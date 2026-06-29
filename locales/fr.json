@@ -15,6 +15,11 @@
     "newReservation": "Nouvelle réservation",
     "tables": "Tables",
     "menu": "Menu",
+    "menuNew": "Plat",
+    "menuList": "Liste des plats",
+    "packages": "Packages Menu",
+    "packageNew": "Ajouter package",
+    "packageList": "Liste des packages",
     "reports": "Rapports",
     "dailyReport": "Rapport journalier",
     "monthlyReport": "Rapport mensuel",
@@ -23,6 +28,7 @@
     "customers": "Clients",
     "baseInfo": "Infos de base",
     "stock": "Stock",
+    "categories": "Catégories",
     "settings": "Paramètres"
   },
   "sidebar": {
@@ -242,7 +248,9 @@
       "selectedCount": "sélectionné(s)",
       "capacityNote": "Indiquez le nombre de places par section.",
       "capacityValid": "✓ Intérieur + Extérieur correspond à la capacité totale",
-      "capacityMismatch": "⚠ Intérieur + Extérieur ="
+      "capacityMismatch": "⚠ Intérieur + Extérieur =",
+      "nameRequired": "Le nom du restaurant est obligatoire",
+      "requiredFields": "Veuillez remplir tous les champs obligatoires"
     }
   },
   "stock": {
@@ -287,7 +295,10 @@
       "delete": "Supprimer",
       "confirmDelete": "Confirmer la suppression ?",
       "cancel": "Annuler",
-      "duplicateName": "Une matière avec ce nom existe déjà"
+      "duplicateName": "Une matière avec ce nom existe déjà",
+      "nameRequired": "Le nom de la matière est obligatoire",
+      "unitRequired": "L'unité de mesure est obligatoire",
+      "requiredFields": "Veuillez remplir tous les champs obligatoires"
     }
   },
   "menu": {
@@ -311,7 +322,8 @@
       "recipe": "Ingrédients",
       "available": "Disponible",
       "prepTime": "Temps de préparation",
-      "visible": "Visible dans le menu"
+      "visible": "Visible dans le menu",
+      "branches": "Succursales"
     },
     "placeholders": {
       "name": "ex: Salade César",
@@ -345,6 +357,8 @@
       "addSub": "+ Sous-catégorie",
       "addSubSub": "+ Sous-sous-catégorie",
       "duplicateName": "Un plat avec ce nom existe déjà",
+      "nameRequired": "Le nom du plat est obligatoire",
+      "requiredFields": "Veuillez remplir tous les champs obligatoires",
       "noPhoto": "Aucune photo",
       "uploadPhoto": "Télécharger une photo",
       "changePhoto": "Changer la photo",
@@ -360,10 +374,124 @@
       "unavailable": "Indisponible",
       "dragToSort": "Glisser pour prioriser",
       "preSelect": "Pré-remplir depuis un plat existant",
-      "importRecipe": "Importer"
+      "importRecipe": "Importer",
+      "totalCost": "Total ingrédients",
+      "allBranches": "Toutes les succursales"
     },
     "defaultCategories": ["Entrée", "Plat principal", "Dessert", "Boisson"],
     "defaultTags": ["Végétarien", "Vegan", "Épicé", "Sans gluten", "Sans lactose", "Halal", "Populaire", "Nouveau"]
+  },
+  "packages": {
+    "sections": {
+      "basic": "Informations de base",
+      "dishes": "Plats",
+      "addons": "Suppléments",
+      "settings": "Paramètres",
+      "preview": "Aperçu du package",
+      "list": "Liste des packages"
+    },
+    "fields": {
+      "name": "Nom du package",
+      "category": "Catégorie",
+      "subCategory": "Sous-catégorie",
+      "description": "Description",
+      "price": "Prix de vente (€)",
+      "dateFrom": "Date de début",
+      "dateTo": "Date de fin",
+      "maxQuantity": "Total max",
+      "maxQuantityPerPerson": "Max par personne",
+      "available": "Disponible",
+      "visible": "Visible dans le menu",
+      "branches": "Succursales",
+      "discountPercent": "Remise %"
+    },
+    "labels": {
+      "add": "Enregistrer",
+      "edit": "Modifier",
+      "save": "Enregistrer",
+      "saved": "Enregistré",
+      "cancelEdit": "Annuler",
+      "new": "Nouveau package",
+      "noItems": "Aucun package enregistré",
+      "noDishes": "Aucun plat sélectionné",
+      "addDish": "+ Ajouter un plat",
+      "addAddon": "Ajouter",
+      "addCategory": "+ Catégorie",
+      "addSub": "+ Sous-catégorie",
+      "alwaysAvailable": "Toujours disponible",
+      "dateRange": "Plage de dates",
+      "unlimitedQty": "Illimité",
+      "allBranches": "Toutes les succursales",
+      "inService": "En service",
+      "outOfService": "Hors service",
+      "shownOnMenu": "Visible",
+      "hiddenFromMenu": "Caché",
+      "inactiveOnMenu": "Inactif",
+      "costLabel": "Coût des ingrédients",
+      "saleLabel": "Prix de vente",
+      "profitLabel": "Bénéfice",
+      "duplicateName": "Un package avec ce nom existe déjà",
+      "nameRequired": "Le nom du package est obligatoire",
+      "requiredFields": "Veuillez remplir tous les champs obligatoires",
+      "noStock": "Aucun article trouvé",
+      "addonsHint": "Options supplémentaires que le client peut choisir à la commande — chacune a un tarif additionnel.",
+      "customAddon": "Personnalisé",
+      "fromStock": "Du stock",
+      "previewTitle": "Aperçu du package",
+      "dishQty": "Qté",
+      "prepTimeUnit": "min",
+      "includesItems": "Comprend",
+      "extras": "Suppléments",
+      "deleteDish": "Retirer",
+      "autoPrice": "Prix automatique",
+      "maxQtyHint": "0 = illimité",
+      "allDishes": "Tous les plats",
+      "uncategorized": "Sans catégorie",
+      "perPerson": "Par personne",
+      "globalQty": "Total",
+      "discountLabel": "Remise",
+      "finalPrice": "Prix final"
+    },
+    "placeholders": {
+      "name": "ex. Package Famille Spécial",
+      "description": "Décrivez ce package...",
+      "addCategory": "Nouvelle catégorie",
+      "addSub": "Nouvelle sous-catégorie",
+      "addonName": "Nom du supplément",
+      "addonPrice": "Prix €",
+      "selectDish": "Rechercher un plat..."
+    },
+    "defaultCategories": ["Menu Fête", "Package Famille", "Déjeuner Affaires", "Spécial Chef"]
+  },
+  "categories": {
+    "title": "Catégories des plats",
+    "tabs": {
+      "category": "Catégorie",
+      "sub": "Sous-catégorie",
+      "subSub": "Niveau 2"
+    },
+    "fields": {
+      "name": "Nom",
+      "selectCategory": "Sélectionner une catégorie",
+      "selectSub": "Sélectionner une sous-catégorie"
+    },
+    "labels": {
+      "add": "Ajouter",
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "noItems": "Aucun élément",
+      "editMode": "Mode édition",
+      "confirmDelete": "Supprimer cet élément?",
+      "parentCategory": "Catégorie parente",
+      "parentSub": "Sous-catégorie"
+    },
+    "placeholders": {
+      "categoryName": "Nom de catégorie...",
+      "subName": "Nom de sous-catégorie...",
+      "subSubName": "Nom du niveau 2..."
+    }
   },
   "tables": {
     "sections": { "viewer": "Plan du restaurant", "list": "Gestion des tables" },

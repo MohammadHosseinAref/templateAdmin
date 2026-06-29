@@ -6,17 +6,31 @@ import { BASEiNFO_DEFAULTS } from '@/types/baseInfo';
 import { useLocale } from '@/contexts/LocaleContext';
 import BaseInfo from './BaseInfo';
 import Amenities from './Amenities';
+import ErrorModal from '@/components/ui/ErrorModal';
+import { validateFields } from '@/lib/formUtils';
 
 type TabKey = 'info' | 'amenities';
 
 export default function TabsSettings() {
   const t = useLocale().baseInfo;
   const [tab, setTab] = useState<TabKey>('info');
-  const [data, setData] = useState<BaseInfoData>(BASEiNFO_DEFAULTS);
-  const [saved, setSaved] = useState(false);
+  const [data, setData]               = useState<BaseInfoData>(BASEiNFO_DEFAULTS);
+  const [saved, setSaved]             = useState(false);
+  const [formError, setFormError]     = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
+
+  const VALIDATION_RULES: Array<{ key: keyof BaseInfoData; message: string }> = [
+    { key: 'name', message: t.labels.nameRequired },
+  ];
+
+  function handleChange(next: BaseInfoData) {
+    setData(next);
+    if (Object.keys(fieldErrors).length > 0) setFieldErrors(validateFields(next, VALIDATION_RULES));
+  }
 
   function handleSave() {
-    console.log('save', data);
+    const errors = validateFields(data, VALIDATION_RULES);
+    if (Object.keys(errors).length > 0) { setFieldErrors(errors); setFormError(t.labels.requiredFields); return; }
     setSaved(true);
     setTimeout(() => setSaved(false), 2500);
   }
@@ -28,6 +42,7 @@ export default function TabsSettings() {
 
   return (
     <div className="px-3 pt-2 pb-8 space-y-3">
+      {formError && <ErrorModal message={formError} onClose={() => setFormError(null)} />}
 
       {/* ── Tabs ── */}
       <div className="flex gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700 sticky top-0 z-10">
@@ -49,7 +64,7 @@ export default function TabsSettings() {
 
       {/* ── Content ── */}
       {tab === 'info' && (
-        <BaseInfo data={data} onChange={setData} onSave={handleSave} saved={saved} />
+        <BaseInfo data={data} onChange={handleChange} onSave={handleSave} saved={saved} fieldErrors={fieldErrors} />
       )}
       {tab === 'amenities' && (
         <Amenities data={data} onChange={setData} onSave={handleSave} saved={saved} />

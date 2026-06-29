@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import type { StockFormProps, StockItemForm } from '@/types/stock';
+import type { StockFormProps } from '@/types/stock';
 import { Card, Field } from '@/components/ui/card';
 import { inputCls, dateCls } from '@/components/ui/styles';
 import SearchSelect from '@/components/ui/SearchSelect';
 import { useLocale } from '@/contexts/LocaleContext';
+import { makeSetField } from '@/lib/formUtils';
+import { SaveProgress } from '@/components/ui/FormWidgets';
 
 
 export default function StockForm({
@@ -18,7 +20,7 @@ export default function StockForm({
   onDraftChange,
   onSave,
   saved,
-  error,
+  fieldErrors,
 }: StockFormProps) {
   const t = useLocale().stock;
   const isEditMode = editId !== null;
@@ -49,9 +51,7 @@ export default function StockForm({
   const selectedItem = items.find((i) => i.id === selectedId) ?? null;
   const editItem     = items.find((i) => i.id === editId)     ?? null;
 
-  function set<K extends keyof StockItemForm>(key: K, val: StockItemForm[K]) {
-    onDraftChange({ ...draft, [key]: val });
-  }
+  const set = makeSetField(draft, onDraftChange);
 
   const cardTitle = isEditMode
     ? `${t.labels.edit} — ${editItem?.name ?? ''}`
@@ -131,20 +131,17 @@ export default function StockForm({
       <div className="border-t border-slate-100 dark:border-slate-700" />
 
       {/* ── Fields ── */}
-      <Field label={t.fields.name} required>
+      <Field label={t.fields.name} required error={fieldErrors.name}>
         <input
           type="text"
-          className={`${inputCls} ${error ? 'border-red-400 dark:border-red-500 focus:ring-red-400/50' : ''}`}
+          className={inputCls}
           placeholder={t.placeholders.name}
           value={draft.name}
           onChange={(e) => set('name', e.target.value)}
         />
-        {error && (
-          <p className="text-xs text-red-500 dark:text-red-400 mt-1">{error}</p>
-        )}
       </Field>
 
-      <Field label={t.fields.unit} required>
+      <Field label={t.fields.unit} required error={fieldErrors.unit}>
         <SearchSelect
           value={draft.unit}
           onChange={(v) => set('unit', v)}
@@ -223,7 +220,8 @@ export default function StockForm({
         <button
           type="button"
           onClick={onSave}
-          className={`flex-1 py-3 text-sm font-semibold rounded-2xl transition-colors ${
+          disabled={saved}
+          className={`relative overflow-hidden flex-1 py-3 text-sm font-semibold rounded-2xl transition-colors disabled:cursor-not-allowed ${
             saved
               ? 'bg-green-500 text-white'
               : isEditMode
@@ -231,6 +229,7 @@ export default function StockForm({
                 : 'bg-teal-500 hover:bg-teal-600 active:bg-teal-700 text-white'
           }`}
         >
+          {saved && <SaveProgress />}
           {saved
             ? `✓ ${t.labels.saved}`
             : isEditMode

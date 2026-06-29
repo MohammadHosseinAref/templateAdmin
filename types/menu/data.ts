@@ -28,6 +28,7 @@ export interface MenuItemForm {
   available: boolean;
   prepTime: number;
   visible: boolean;
+  branches: string[];
 }
 
 export interface MenuItem extends MenuItemForm {

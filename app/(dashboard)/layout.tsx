@@ -7,6 +7,7 @@ import FontPicker from '@/components/layout/FontPicker';
 import { type AppSettings, DEFAULTS, SETTINGS_KEY, loadSettings } from '@/types/settings';
 import { type BottomNavItem } from '@/types/layout/bottomnav';
 import { LocaleProvider, useLocale } from '@/contexts/LocaleContext';
+import { CategoriesProvider } from '@/contexts/CategoriesContext';
 import { UPLOADED_FONT_KEY, injectUploadedFont } from '@/components/layout/utils/font-utils';
 
 export default function DashboardGroupLayout({ children }: { children: React.ReactNode }) {
@@ -117,7 +118,9 @@ function DashboardShell({
         }}
         onOpenFontPicker={() => setShowFontPicker(true)}
       >
-        {children}
+        <CategoriesProvider>
+          {children}
+        </CategoriesProvider>
       </DashboardLayout>
 
       {showFontPicker && (

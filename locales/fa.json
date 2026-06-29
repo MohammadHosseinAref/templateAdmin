@@ -15,6 +15,11 @@
     "newReservation": "رزرو جدید",
     "tables": "میزها",
     "menu": "منوی غذایی",
+    "menuNew": "غذا",
+    "menuList": "لیست غذا",
+    "packages": "پکیج‌های منو",
+    "packageNew": "ثبت پکیج",
+    "packageList": "لیست پکیج‌ها",
     "reports": "گزارش‌ها",
     "dailyReport": "گزارش روزانه",
     "monthlyReport": "گزارش ماهانه",
@@ -23,6 +28,7 @@
     "customers": "مشتریان",
     "baseInfo": "اطلاعات پایه",
     "stock": "انبارداری",
+    "categories": "دسته‌بندی غذاها",
     "settings": "تنظیمات"
   },
   "sidebar": {
@@ -242,7 +248,9 @@
       "selectedCount": "مورد انتخاب شده",
       "capacityNote": "تعداد نفرات قابل پذیرش در هر بخش را وارد کنید.",
       "capacityValid": "✓ جمع سرپوشیده و فضای باز با ظرفیت کل برابر است",
-      "capacityMismatch": "⚠ جمع سرپوشیده + فضای باز ="
+      "capacityMismatch": "⚠ جمع سرپوشیده + فضای باز =",
+      "nameRequired": "نام رستوران اجباری است",
+      "requiredFields": "لطفاً تمام فیلدهای اجباری را پر کنید"
     }
   },
   "stock": {
@@ -287,7 +295,10 @@
       "delete": "حذف",
       "confirmDelete": "تأیید حذف؟",
       "cancel": "انصراف",
-      "duplicateName": "ماده‌ای با این نام قبلاً وجود دارد"
+      "duplicateName": "ماده‌ای با این نام قبلاً وجود دارد",
+      "nameRequired": "نام ماده اجباری است",
+      "unitRequired": "واحد اندازه‌گیری اجباری است",
+      "requiredFields": "لطفاً تمام فیلدهای اجباری را پر کنید"
     }
   },
   "menu": {
@@ -311,7 +322,8 @@
       "recipe": "مواد اولیه",
       "available": "در دسترس",
       "prepTime": "زمان آماده‌سازی",
-      "visible": "نمایش در منو"
+      "visible": "نمایش در منو",
+      "branches": "شعبه‌ها"
     },
     "placeholders": {
       "name": "مثال: سالاد سزار",
@@ -345,6 +357,8 @@
       "addSub": "+ زیردسته",
       "addSubSub": "+ زیر-زیردسته",
       "duplicateName": "غذایی با این نام قبلاً وجود دارد",
+      "nameRequired": "نام غذا اجباری است",
+      "requiredFields": "لطفاً تمام فیلدهای اجباری را پر کنید",
       "noPhoto": "بدون تصویر",
       "uploadPhoto": "آپلود تصویر",
       "changePhoto": "تغییر تصویر",
@@ -360,10 +374,124 @@
       "unavailable": "ناموجود",
       "dragToSort": "بکشید برای اولویت‌بندی",
       "preSelect": "پیش‌پر از غذای موجود",
-      "importRecipe": "وارد کردن"
+      "importRecipe": "وارد کردن",
+      "totalCost": "جمع مواد اولیه",
+      "allBranches": "همه شعبه‌ها"
     },
     "defaultCategories": ["پیش‌غذا", "غذای اصلی", "دسر", "نوشیدنی"],
     "defaultTags": ["گیاهی", "وگان", "تند", "بدون گلوتن", "بدون لاکتوز", "حلال", "پرطرفدار", "جدید"]
+  },
+  "packages": {
+    "sections": {
+      "basic": "اطلاعات پایه",
+      "dishes": "غذاها",
+      "addons": "افزودنی‌ها",
+      "settings": "تنظیمات",
+      "preview": "پیش‌نمایش پکیج",
+      "list": "لیست پکیج‌ها"
+    },
+    "fields": {
+      "name": "نام پکیج",
+      "category": "دسته‌بندی",
+      "subCategory": "زیردسته",
+      "description": "توضیحات",
+      "price": "قیمت فروش (€)",
+      "dateFrom": "از تاریخ",
+      "dateTo": "تا تاریخ",
+      "maxQuantity": "حداکثر کل",
+      "maxQuantityPerPerson": "حداکثر هر نفر",
+      "available": "در دسترس",
+      "visible": "نمایش در منو",
+      "branches": "شعبه‌ها",
+      "discountPercent": "درصد تخفیف"
+    },
+    "labels": {
+      "add": "ثبت پکیج",
+      "edit": "ویرایش",
+      "save": "ذخیره",
+      "saved": "ذخیره شد",
+      "cancelEdit": "لغو ویرایش",
+      "new": "پکیج جدید",
+      "noItems": "پکیجی ثبت نشده",
+      "noDishes": "غذایی انتخاب نشده",
+      "addDish": "+ افزودن غذا",
+      "addAddon": "افزودن",
+      "addCategory": "+ دسته‌بندی",
+      "addSub": "+ زیردسته",
+      "alwaysAvailable": "همیشه در دسترس",
+      "dateRange": "بازه زمانی",
+      "unlimitedQty": "بدون محدودیت",
+      "allBranches": "همه شعبه‌ها",
+      "inService": "در سرویس",
+      "outOfService": "خارج از سرویس",
+      "shownOnMenu": "نمایش",
+      "hiddenFromMenu": "پنهان",
+      "inactiveOnMenu": "ناموجود",
+      "costLabel": "هزینه مواد اولیه",
+      "saleLabel": "قیمت فروش",
+      "profitLabel": "سود",
+      "duplicateName": "پکیجی با این نام قبلاً ثبت شده",
+      "nameRequired": "نام پکیج اجباری است",
+      "requiredFields": "لطفاً تمام فیلدهای اجباری را پر کنید",
+      "noStock": "موردی یافت نشد",
+      "addonsHint": "گزینه‌های اضافی که مشتری می‌تواند هنگام سفارش انتخاب کند و هزینه‌ی جداگانه دارند.",
+      "customAddon": "سفارشی",
+      "fromStock": "از انبار",
+      "previewTitle": "پیش‌نمایش پکیج",
+      "dishQty": "تعداد",
+      "prepTimeUnit": "دقیقه",
+      "includesItems": "شامل غذاها",
+      "extras": "افزودنی‌ها",
+      "deleteDish": "حذف",
+      "autoPrice": "قیمت خودکار",
+      "maxQtyHint": "0 = بدون محدودیت",
+      "allDishes": "همه غذاها",
+      "uncategorized": "بدون دسته‌بندی",
+      "perPerson": "هر نفر",
+      "globalQty": "کلی",
+      "discountLabel": "تخفیف",
+      "finalPrice": "قیمت نهایی"
+    },
+    "placeholders": {
+      "name": "مثال: پکیج ویژه خانوادگی",
+      "description": "پکیج را توصیف کنید...",
+      "addCategory": "دسته‌بندی جدید",
+      "addSub": "زیردسته جدید",
+      "addonName": "نام افزودنی",
+      "addonPrice": "قیمت €",
+      "selectDish": "جستجوی غذا..."
+    },
+    "defaultCategories": ["منوی جشن", "پکیج خانوادگی", "ناهار کاری", "ویژه رستوران"]
+  },
+  "categories": {
+    "title": "دسته‌بندی غذاها",
+    "tabs": {
+      "category": "دسته‌بندی",
+      "sub": "زیردسته",
+      "subSub": "سطح دوم"
+    },
+    "fields": {
+      "name": "نام",
+      "selectCategory": "انتخاب دسته‌بندی",
+      "selectSub": "انتخاب زیردسته"
+    },
+    "labels": {
+      "add": "افزودن",
+      "save": "ذخیره",
+      "cancel": "لغو",
+      "edit": "ویرایش",
+      "delete": "حذف",
+      "noItems": "موردی ثبت نشده",
+      "editMode": "حالت ویرایش",
+      "confirmDelete": "آیا حذف شود؟",
+      "parentCategory": "دسته اصلی",
+      "parentSub": "زیردسته"
+    },
+    "placeholders": {
+      "categoryName": "نام دسته‌بندی...",
+      "subName": "نام زیردسته...",
+      "subSubName": "نام سطح دوم..."
+    }
   },
   "tables": {
     "sections": {

@@ -13,4 +13,5 @@ export const MENU_ITEM_DEFAULTS: MenuItemForm = {
   available: true,
   prepTime: 0,
   visible: true,
+  branches: [],
 };

@@ -10,7 +10,7 @@ export interface StockFormProps {
   onDraftChange: (draft: StockItemForm) => void;
   onSave: () => void;
   saved: boolean;
-  error: string | null;
+  fieldErrors: Record<string, string>;
 }
 
 export interface StockListProps {

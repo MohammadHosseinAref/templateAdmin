@@ -15,6 +15,11 @@
     "newReservation": "New Reservation",
     "tables": "Tables",
     "menu": "Food Menu",
+    "menuNew": "Food",
+    "menuList": "Food List",
+    "packages": "Menu Packages",
+    "packageNew": "Add Package",
+    "packageList": "Package List",
     "reports": "Reports",
     "dailyReport": "Daily Report",
     "monthlyReport": "Monthly Report",
@@ -23,6 +28,7 @@
     "customers": "Customers",
     "baseInfo": "Basic Info",
     "stock": "Stock",
+    "categories": "Food Categories",
     "settings": "Settings"
   },
   "sidebar": {
@@ -242,7 +248,9 @@
       "selectedCount": "selected",
       "capacityNote": "Enter the number of seats per section.",
       "capacityValid": "✓ Indoor + Outdoor matches total capacity",
-      "capacityMismatch": "⚠ Indoor + Outdoor ="
+      "capacityMismatch": "⚠ Indoor + Outdoor =",
+      "nameRequired": "Restaurant name is required",
+      "requiredFields": "Please fill in all required fields"
     }
   },
   "stock": {
@@ -287,7 +295,10 @@
       "delete": "Delete",
       "confirmDelete": "Confirm delete?",
       "cancel": "Cancel",
-      "duplicateName": "A material with this name already exists"
+      "duplicateName": "A material with this name already exists",
+      "nameRequired": "Material name is required",
+      "unitRequired": "Unit of measure is required",
+      "requiredFields": "Please fill in all required fields"
     }
   },
   "menu": {
@@ -311,7 +322,8 @@
       "recipe": "Ingredients",
       "available": "Available",
       "prepTime": "Preparation Time",
-      "visible": "Visible on Menu"
+      "visible": "Visible on Menu",
+      "branches": "Branches"
     },
     "placeholders": {
       "name": "e.g. Caesar Salad",
@@ -345,6 +357,8 @@
       "addSub": "+ Sub-category",
       "addSubSub": "+ Sub-sub-category",
       "duplicateName": "A dish with this name already exists",
+      "nameRequired": "Dish name is required",
+      "requiredFields": "Please fill in all required fields",
       "noPhoto": "No photo",
       "uploadPhoto": "Upload a photo",
       "changePhoto": "Change photo",
@@ -360,10 +374,124 @@
       "unavailable": "Unavailable",
       "dragToSort": "Drag to prioritize",
       "preSelect": "Pre-fill from existing dish",
-      "importRecipe": "Import"
+      "importRecipe": "Import",
+      "totalCost": "Ingredients total",
+      "allBranches": "All branches"
     },
     "defaultCategories": ["Starter", "Main Course", "Dessert", "Drink"],
     "defaultTags": ["Vegetarian", "Vegan", "Spicy", "Gluten-free", "Lactose-free", "Halal", "Popular", "New"]
+  },
+  "packages": {
+    "sections": {
+      "basic": "Basic Info",
+      "dishes": "Dishes",
+      "addons": "Add-ons",
+      "settings": "Settings",
+      "preview": "Package Preview",
+      "list": "Package List"
+    },
+    "fields": {
+      "name": "Package Name",
+      "category": "Category",
+      "subCategory": "Sub-category",
+      "description": "Description",
+      "price": "Sale Price (€)",
+      "dateFrom": "From Date",
+      "dateTo": "To Date",
+      "maxQuantity": "Max Total",
+      "maxQuantityPerPerson": "Max Per Person",
+      "available": "Available",
+      "visible": "Visible on Menu",
+      "branches": "Branches",
+      "discountPercent": "Discount %"
+    },
+    "labels": {
+      "add": "Add Package",
+      "edit": "Edit",
+      "save": "Save",
+      "saved": "Saved",
+      "cancelEdit": "Cancel Edit",
+      "new": "New Package",
+      "noItems": "No packages yet",
+      "noDishes": "No dishes selected",
+      "addDish": "+ Add Dish",
+      "addAddon": "Add",
+      "addCategory": "+ Category",
+      "addSub": "+ Sub-category",
+      "alwaysAvailable": "Always available",
+      "dateRange": "Date range",
+      "unlimitedQty": "Unlimited",
+      "allBranches": "All branches",
+      "inService": "In service",
+      "outOfService": "Out of service",
+      "shownOnMenu": "Visible",
+      "hiddenFromMenu": "Hidden",
+      "inactiveOnMenu": "Inactive",
+      "costLabel": "Ingredient cost",
+      "saleLabel": "Sale price",
+      "profitLabel": "Profit",
+      "duplicateName": "A package with this name already exists",
+      "nameRequired": "Package name is required",
+      "requiredFields": "Please fill in all required fields",
+      "noStock": "No items found",
+      "addonsHint": "Optional extras customers can choose when ordering — each has its own additional charge.",
+      "customAddon": "Custom",
+      "fromStock": "From stock",
+      "previewTitle": "Package Preview",
+      "dishQty": "Qty",
+      "prepTimeUnit": "min",
+      "includesItems": "Includes",
+      "extras": "Add-ons",
+      "deleteDish": "Remove",
+      "autoPrice": "Auto price",
+      "maxQtyHint": "0 = unlimited",
+      "allDishes": "All dishes",
+      "uncategorized": "Uncategorized",
+      "perPerson": "Per person",
+      "globalQty": "Total",
+      "discountLabel": "Discount",
+      "finalPrice": "Final price"
+    },
+    "placeholders": {
+      "name": "e.g. Family Special Package",
+      "description": "Describe this package...",
+      "addCategory": "New category",
+      "addSub": "New sub-category",
+      "addonName": "Add-on name",
+      "addonPrice": "Price €",
+      "selectDish": "Search dish..."
+    },
+    "defaultCategories": ["Holiday Menu", "Family Package", "Business Lunch", "Chef's Special"]
+  },
+  "categories": {
+    "title": "Food Categories",
+    "tabs": {
+      "category": "Category",
+      "sub": "Sub-Category",
+      "subSub": "Level 2"
+    },
+    "fields": {
+      "name": "Name",
+      "selectCategory": "Select Category",
+      "selectSub": "Select Sub-Category"
+    },
+    "labels": {
+      "add": "Add",
+      "save": "Save",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "noItems": "No items found",
+      "editMode": "Edit mode",
+      "confirmDelete": "Delete this item?",
+      "parentCategory": "Parent Category",
+      "parentSub": "Sub-Category"
+    },
+    "placeholders": {
+      "categoryName": "Category name...",
+      "subName": "Sub-category name...",
+      "subSubName": "Level 2 name..."
+    }
   },
   "tables": {
     "sections": { "viewer": "Floor Plan", "list": "Manage Tables" },

@@ -3,12 +3,14 @@ export type SidebarIconKey =
   | 'calendar'
   | 'table'
   | 'fork'
+  | 'package'
   | 'chart'
   | 'users'
   | 'settings'
   | 'logout'
   | 'chevronDown'
-  | 'stock';
+  | 'stock'
+  | 'categories';
 
 export interface GrandItem {
   href: string;
@@ -16,7 +18,7 @@ export interface GrandItem {
 }
 
 export interface SubItem {
-  href: string;
+  href?: string;
   label: string;
   children?: GrandItem[];
 }

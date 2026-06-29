@@ -2,46 +2,46 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import type { MenuItemForm } from '@/types/menu';
-import { MENU_ITEM_DEFAULTS } from '@/types/menu';
+import type { MenuPackageForm } from '@/types/packages';
+import { PACKAGE_DEFAULTS } from '@/types/packages';
 import { useLocale } from '@/contexts/LocaleContext';
-import { useMenu } from '@/contexts/MenuContext';
-import MenuForm from './MenuForm';
-import MenuPreview from './MenuPreview';
+import { usePackages } from '@/contexts/PackagesContext';
+import PackageForm from './form/PackageForm';
+import PackagePreview from './PackagePreview';
 import ErrorModal from '@/components/ui/ErrorModal';
 import { validateFields } from '@/lib/formUtils';
 import { SaveProgress } from '@/components/ui/FormWidgets';
 
-export default function MenuSettings() {
+export default function PackageSettings() {
   const router = useRouter();
-  const t = useLocale().menu;
+  const t = useLocale().packages;
   const {
-    data, allTags, stockItems, branches,
-    editingItem, saveItem, cancelEdit,
-    addCategory, addSub, addSubSub, addTag,
-  } = useMenu();
+    data, menuCategories, menuItems, stockItems, branches,
+    editingPackage, savePackage, cancelEdit,
+    addMenuCategory, addMenuSub,
+  } = usePackages();
 
-  const [draft, setDraft]           = useState<MenuItemForm>({ ...MENU_ITEM_DEFAULTS });
-  const [saved, setSaved]           = useState(false);
-  const [formError, setFormError]   = useState<string | null>(null);
+  const [draft, setDraft]             = useState<MenuPackageForm>({ ...PACKAGE_DEFAULTS });
+  const [saved, setSaved]             = useState(false);
+  const [formError, setFormError]     = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
-  const VALIDATION_RULES: Array<{ key: keyof MenuItemForm; message: string }> = [
+  const VALIDATION_RULES: Array<{ key: keyof MenuPackageForm; message: string }> = [
     { key: 'name', message: t.labels.nameRequired },
   ];
 
   useEffect(() => {
-    if (editingItem) {
-      const { id: _id, ...rest } = editingItem;
+    if (editingPackage) {
+      const { id: _id, ...rest } = editingPackage;
       setDraft({ ...rest });
     } else {
-      setDraft({ ...MENU_ITEM_DEFAULTS });
+      setDraft({ ...PACKAGE_DEFAULTS });
     }
     setFormError(null);
     setFieldErrors({});
-  }, [editingItem]);
+  }, [editingPackage]);
 
-  function handleDraftChange(next: MenuItemForm) {
+  function handleDraftChange(next: MenuPackageForm) {
     setDraft(next);
     if (formError) setFormError(null);
     if (Object.keys(fieldErrors).length > 0) setFieldErrors(validateFields(next, VALIDATION_RULES));
@@ -50,13 +50,13 @@ export default function MenuSettings() {
   function handleSave() {
     const errors = validateFields(draft, VALIDATION_RULES);
     if (Object.keys(errors).length > 0) { setFieldErrors(errors); setFormError(t.labels.requiredFields); return; }
-    const isEditing = editingItem !== null;
-    const result = saveItem(draft);
+    const isEditing = editingPackage !== null;
+    const result = savePackage(draft);
     if (!result.ok) { setFormError(result.error); return; }
     if (isEditing) {
-      router.push('/menu/list');
+      router.push('/packages/list');
     } else {
-      setDraft({ ...MENU_ITEM_DEFAULTS });
+      setDraft({ ...PACKAGE_DEFAULTS });
       setSaved(true);
       setTimeout(() => setSaved(false), 2500);
     }
@@ -64,35 +64,45 @@ export default function MenuSettings() {
 
   function handleCancel() {
     cancelEdit();
-    setDraft({ ...MENU_ITEM_DEFAULTS });
+    setDraft({ ...PACKAGE_DEFAULTS });
     setFormError(null);
     setFieldErrors({});
-    router.push('/menu/list');
+    router.push('/packages/list');
   }
 
-  const editId = editingItem?.id ?? null;
+  const editId = editingPackage?.id ?? null;
 
   return (
     <>
       {formError && <ErrorModal message={formError} onClose={() => setFormError(null)} />}
       <div className="pb-8 grid lg:grid-cols-[1fr_340px] gap-4 items-start px-3 pt-3">
-      <MenuForm
+      <PackageForm
         draft={draft}
         editId={editId}
-        categories={data.categories}
-        allTags={allTags}
-        items={data.items}
+        menuCategories={menuCategories}
+        menuItems={menuItems}
         stockItems={stockItems}
         branches={branches}
         onDraftChange={handleDraftChange}
-        onAddCategory={addCategory}
-        onAddSub={addSub}
-        onAddSubSub={addSubSub}
-        onAddTag={addTag}
+        onAddMenuCategory={addMenuCategory}
+        onAddMenuSub={addMenuSub}
         fieldErrors={fieldErrors}
       />
       <div className="lg:sticky lg:top-4 space-y-3">
-        <MenuPreview draft={draft} categories={data.categories} stockItems={stockItems} />
+        <PackagePreview
+          draft={draft}
+          menuItems={menuItems}
+          stockItems={stockItems}
+          categories={data.categories}
+          menuCategories={menuCategories}
+          onNameChange={(name) => setDraft((prev) => ({ ...prev, name }))}
+          onCategoryLabelChange={(catId, label) =>
+            setDraft((prev) => ({
+              ...prev,
+              categoryLabels: { ...prev.categoryLabels, [catId]: label },
+            }))
+          }
+        />
         <div className="flex gap-2">
           {editId !== null && (
             <button
@@ -108,7 +118,10 @@ export default function MenuSettings() {
             onClick={handleSave}
             disabled={saved}
             className="relative overflow-hidden flex-1 py-3 text-sm font-semibold rounded-2xl transition-colors disabled:cursor-not-allowed"
-            style={{ backgroundColor: saved ? '#22c55e' : editId !== null ? '#f59e0b' : '#14b8a6', color: '#fff' }}
+            style={{
+              backgroundColor: saved ? '#22c55e' : editId !== null ? '#f59e0b' : '#14b8a6',
+              color: '#fff',
+            }}
           >
             {saved && <SaveProgress />}
             {saved ? `✓ ${t.labels.saved}` : editId !== null ? t.labels.save : t.labels.add}
