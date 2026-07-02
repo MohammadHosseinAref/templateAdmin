@@ -314,7 +314,7 @@ export default function Topbar({
                   onClick={() => onFontSizeChange(Math.max(11, fontSize - 1))}
                   className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-teal-50 dark:hover:bg-teal-900/30 text-slate-600 dark:text-slate-300 hover:text-teal-600 font-bold text-sm transition-colors flex items-center justify-center"
                 >
-                  âˆ’
+                  -
                 </button>
                 <span className="text-xs font-bold text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-900/30 px-2 py-0.5 rounded-full min-w-[2rem] text-center tabular-nums">
                   {fontSize}
