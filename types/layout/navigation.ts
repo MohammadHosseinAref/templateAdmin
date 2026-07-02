@@ -10,7 +10,8 @@ export type SidebarIconKey =
   | 'logout'
   | 'chevronDown'
   | 'stock'
-  | 'categories';
+  | 'categories'
+  | 'delivery';
 
 export interface GrandItem {
   href: string;

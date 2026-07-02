@@ -7,8 +7,7 @@ import type { PackagesData, MenuPackageForm, MenuPackage } from '@/types/package
 import { PACKAGE_DEFAULTS } from '@/types/packages';
 import { useLocale } from '@/contexts/LocaleContext';
 import { useCategories } from '@/contexts/CategoriesContext';
-
-const BRANCHES = ['مرکزی', 'شمال', 'جنوب', 'غرب'];
+import { BRANCHES } from '@/data/branches';
 
 export const MENU_ITEMS: MenuItem[] = [
   { id: 'm1',  name: 'Salade César',       categoryId: 'cat-0', subCategory: 'Salade',          subSubCategory: '', price: 9.5,  description: '', photo: '', tags: ['Végétarien', 'Populaire'], recipe: [{ stockId: 's1', quantity: 0.02, price: 0.20 }], available: true, prepTime: 10, visible: true, branches: [] },
@@ -33,8 +32,6 @@ export const STOCK_REFS: StockRef[] = [
   { id: 's7', name: 'Tomates',       unit: 'kg',     inventory: 3.2, pricePerUnit: 4.80 },
   { id: 's8', name: 'Filet de poulet', unit: 'kg',   inventory: 7.5, pricePerUnit: 12.00 },
 ];
-
-export { BRANCHES };
 
 interface PackagesContextValue {
   data: PackagesData;
@@ -86,7 +83,7 @@ export function PackagesProvider({ children }: { children: React.ReactNode }) {
         price: 89.0,
         available: true,
         visible: 'visible',
-        branches: ['مرکزی', 'شمال'],
+        branches: ['Strasbourg', 'Lyon'],
         maxQuantity: 10,
         maxQuantityPerPerson: 0,
         alwaysAvailable: true,
@@ -109,7 +106,7 @@ export function PackagesProvider({ children }: { children: React.ReactNode }) {
         price: 19.5,
         available: true,
         visible: 'visible',
-        branches: ['مرکزی', 'جنوب', 'غرب'],
+        branches: ['Strasbourg', 'Paris'],
         maxQuantity: 0,
         maxQuantityPerPerson: 1,
         alwaysAvailable: false,
@@ -137,7 +134,7 @@ export function PackagesProvider({ children }: { children: React.ReactNode }) {
         price: 129.0,
         available: true,
         visible: 'visible',
-        branches: ['مرکزی'],
+        branches: ['Strasbourg'],
         maxQuantity: 5,
         maxQuantityPerPerson: 0,
         alwaysAvailable: true,
@@ -164,7 +161,7 @@ export function PackagesProvider({ children }: { children: React.ReactNode }) {
         price: 59.0,
         available: true,
         visible: 'inactive',
-        branches: ['مرکزی', 'شمال'],
+        branches: ['Lyon', 'Paris'],
         maxQuantity: 8,
         maxQuantityPerPerson: 1,
         alwaysAvailable: true,

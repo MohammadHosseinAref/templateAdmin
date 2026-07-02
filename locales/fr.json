@@ -29,6 +29,7 @@
     "baseInfo": "Infos de base",
     "stock": "Stock",
     "categories": "Catégories",
+    "delivery": "Livreurs",
     "settings": "Paramètres"
   },
   "sidebar": {
@@ -97,7 +98,18 @@
     "reservationCountSuffix": "réservation(s)",
     "filteredBadge": "(filtré)",
     "noResults": "Aucune réservation trouvée",
-    "tablePrefix": "Table"
+    "tablePrefix": "Table",
+    "todayDelivery": {
+      "title": "Livreurs du jour",
+      "available": "disponible",
+      "unavailableToday": "absent auj.",
+      "inactive": "inactif",
+      "noCouriers": "Aucun livreur enregistré",
+      "viewAll": "Gérer les livreurs",
+      "serviceLabel": "Service livraison",
+      "serviceOn": "Actif",
+      "serviceOff": "En pause"
+    }
   },
   "reservation": {
     "confirmed": "Confirmée",
@@ -152,6 +164,7 @@
     "apply": "Appliquer",
     "active": "Actif",
     "editTranslations": "Modifier les traductions",
+    "clearAllChanges": "Effacer toutes les modifications",
     "editLang": "Modifier la langue",
     "editSection": "Section",
     "selectSection": "Sélectionner une section...",
@@ -174,7 +187,8 @@
       "languagePage": "Page de langue",
       "baseInfo": "Informations de base",
       "stock": "Stock",
-      "menu": "Menu"
+      "menu": "Menu",
+      "delivery": "Livraison"
     }
   },
   "baseInfo": {
@@ -299,6 +313,90 @@
       "nameRequired": "Le nom de la matière est obligatoire",
       "unitRequired": "L'unité de mesure est obligatoire",
       "requiredFields": "Veuillez remplir tous les champs obligatoires"
+    }
+  },
+  "delivery": {
+    "sections": {
+      "form": "Fiche du livreur",
+      "list": "Équipe de livraison",
+      "availability": "Heures de disponibilité"
+    },
+    "fields": {
+      "photo": "Photo",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "phone": "Numéro de téléphone",
+      "email": "E-mail",
+      "nationalId": "Numéro d'identité",
+      "vehicleType": "Type de véhicule",
+      "licensePlate": "Plaque d'immatriculation",
+      "zones": "Zones de couverture",
+      "notes": "Notes"
+    },
+    "vehicleTypes": {
+      "bike": "Vélo",
+      "scooter": "Scooter",
+      "car": "Voiture",
+      "foot": "À pied"
+    },
+    "days": {
+      "sat": "Samedi",
+      "sun": "Dimanche",
+      "mon": "Lundi",
+      "tue": "Mardi",
+      "wed": "Mercredi",
+      "thu": "Jeudi",
+      "fri": "Vendredi"
+    },
+    "placeholders": {
+      "firstName": "ex. Jean",
+      "lastName": "ex. Dupont",
+      "phone": "ex. 0612345678",
+      "email": "ex. jean@example.com",
+      "nationalId": "Numéro d'identité",
+      "licensePlate": "ex. AB-123-CD",
+      "notes": "Notes internes sur ce livreur..."
+    },
+    "labels": {
+      "new": "Nouveau livreur",
+      "edit": "Modifier",
+      "add": "Ajouter le livreur",
+      "save": "Enregistrer",
+      "saved": "Enregistré",
+      "cancelEdit": "Annuler la modification",
+      "delete": "Supprimer",
+      "confirmDelete": "Confirmer la suppression ?",
+      "cancel": "Annuler",
+      "noItems": "Aucun livreur pour le moment",
+      "status": "Statut",
+      "active": "Actif",
+      "inactive": "Inactif",
+      "uploadPhoto": "Télécharger une photo",
+      "changePhoto": "Changer la photo",
+      "noZones": "Aucune zone sélectionnée — couvre toutes les zones",
+      "unavailable": "Indisponible",
+      "firstNameRequired": "Le prénom est obligatoire",
+      "lastNameRequired": "Le nom est obligatoire",
+      "phoneRequired": "Le numéro de téléphone est obligatoire",
+      "duplicatePhone": "Un livreur avec ce numéro de téléphone existe déjà",
+      "requiredFields": "Veuillez remplir tous les champs obligatoires",
+      "viewHistory": "Historique des livraisons"
+    },
+    "history": {
+      "title": "Historique des livraisons",
+      "empty": "Aucune livraison pour le moment",
+      "date": "Date",
+      "customer": "Client",
+      "address": "Adresse",
+      "amount": "Montant",
+      "duration": "Délai de livraison",
+      "minutesSuffix": "min",
+      "status": "Statut",
+      "statuses": {
+        "delivered": "Livré",
+        "cancelled": "Annulé",
+        "failed": "Échoué"
+      }
     }
   },
   "menu": {

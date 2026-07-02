@@ -29,6 +29,7 @@
     "baseInfo": "Basic Info",
     "stock": "Stock",
     "categories": "Food Categories",
+    "delivery": "Delivery",
     "settings": "Settings"
   },
   "sidebar": {
@@ -97,7 +98,18 @@
     "reservationCountSuffix": "reservation(s)",
     "filteredBadge": "(filtered)",
     "noResults": "No reservations found",
-    "tablePrefix": "Table"
+    "tablePrefix": "Table",
+    "todayDelivery": {
+      "title": "Today's Couriers",
+      "available": "available",
+      "unavailableToday": "off today",
+      "inactive": "inactive",
+      "noCouriers": "No couriers registered yet",
+      "viewAll": "Manage couriers",
+      "serviceLabel": "Delivery service",
+      "serviceOn": "Active",
+      "serviceOff": "Paused"
+    }
   },
   "reservation": {
     "confirmed": "Confirmed",
@@ -152,6 +164,7 @@
     "apply": "Apply",
     "active": "Active",
     "editTranslations": "Edit Translations",
+    "clearAllChanges": "Clear all changes",
     "editLang": "Edit language",
     "editSection": "Section",
     "selectSection": "Select a section...",
@@ -174,7 +187,8 @@
       "languagePage": "Language Page",
       "baseInfo": "Base Information",
       "stock": "Stock",
-      "menu": "Menu"
+      "menu": "Menu",
+      "delivery": "Delivery"
     }
   },
   "baseInfo": {
@@ -299,6 +313,90 @@
       "nameRequired": "Material name is required",
       "unitRequired": "Unit of measure is required",
       "requiredFields": "Please fill in all required fields"
+    }
+  },
+  "delivery": {
+    "sections": {
+      "form": "Courier Form",
+      "list": "Delivery Team",
+      "availability": "Available Hours"
+    },
+    "fields": {
+      "photo": "Photo",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone Number",
+      "email": "Email",
+      "nationalId": "National ID",
+      "vehicleType": "Vehicle Type",
+      "licensePlate": "License Plate",
+      "zones": "Coverage Zones",
+      "notes": "Notes"
+    },
+    "vehicleTypes": {
+      "bike": "Bicycle",
+      "scooter": "Scooter",
+      "car": "Car",
+      "foot": "On Foot"
+    },
+    "days": {
+      "sat": "Saturday",
+      "sun": "Sunday",
+      "mon": "Monday",
+      "tue": "Tuesday",
+      "wed": "Wednesday",
+      "thu": "Thursday",
+      "fri": "Friday"
+    },
+    "placeholders": {
+      "firstName": "e.g. John",
+      "lastName": "e.g. Smith",
+      "phone": "e.g. 0612345678",
+      "email": "e.g. john@example.com",
+      "nationalId": "ID number",
+      "licensePlate": "e.g. AB-123-CD",
+      "notes": "Internal notes about this courier..."
+    },
+    "labels": {
+      "new": "New Courier",
+      "edit": "Edit",
+      "add": "Add Courier",
+      "save": "Save",
+      "saved": "Saved",
+      "cancelEdit": "Cancel Edit",
+      "delete": "Delete",
+      "confirmDelete": "Confirm delete?",
+      "cancel": "Cancel",
+      "noItems": "No couriers yet",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "uploadPhoto": "Upload photo",
+      "changePhoto": "Change photo",
+      "noZones": "No zone selected — covers all zones",
+      "unavailable": "Unavailable",
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "phoneRequired": "Phone number is required",
+      "duplicatePhone": "A courier with this phone number already exists",
+      "requiredFields": "Please fill in all required fields",
+      "viewHistory": "Delivery history"
+    },
+    "history": {
+      "title": "Delivery History",
+      "empty": "No deliveries yet",
+      "date": "Date",
+      "customer": "Customer",
+      "address": "Address",
+      "amount": "Amount",
+      "duration": "Delivery Time",
+      "minutesSuffix": "min",
+      "status": "Status",
+      "statuses": {
+        "delivered": "Delivered",
+        "cancelled": "Cancelled",
+        "failed": "Failed"
+      }
     }
   },
   "menu": {

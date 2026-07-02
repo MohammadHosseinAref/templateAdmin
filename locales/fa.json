@@ -29,6 +29,7 @@
     "baseInfo": "اطلاعات پایه",
     "stock": "انبارداری",
     "categories": "دسته‌بندی غذاها",
+    "delivery": "پیک‌های تحویل",
     "settings": "تنظیمات"
   },
   "sidebar": {
@@ -97,7 +98,18 @@
     "reservationCountSuffix": "رزرو",
     "filteredBadge": "(فیلتر شده)",
     "noResults": "رزروی یافت نشد",
-    "tablePrefix": "میز"
+    "tablePrefix": "میز",
+    "todayDelivery": {
+      "title": "پیک‌های امروز",
+      "available": "در دسترس",
+      "unavailableToday": "امروز نیست",
+      "inactive": "غیرفعال",
+      "noCouriers": "هنوز پیکی ثبت نشده",
+      "viewAll": "مدیریت پیک‌ها",
+      "serviceLabel": "سرویس ارسال",
+      "serviceOn": "فعال",
+      "serviceOff": "متوقف"
+    }
   },
   "reservation": {
     "confirmed": "تایید شده",
@@ -152,6 +164,7 @@
     "apply": "اعمال",
     "active": "فعال",
     "editTranslations": "ویرایش ترجمه‌ها",
+    "clearAllChanges": "پاک کردن همه تغییرات",
     "editLang": "ویرایش زبان",
     "editSection": "بخش",
     "selectSection": "انتخاب بخش...",
@@ -174,7 +187,8 @@
       "languagePage": "صفحه زبان",
       "baseInfo": "اطلاعات پایه",
       "stock": "انبارداری",
-      "menu": "منو"
+      "menu": "منو",
+      "delivery": "تحویل"
     }
   },
   "baseInfo": {
@@ -299,6 +313,90 @@
       "nameRequired": "نام ماده اجباری است",
       "unitRequired": "واحد اندازه‌گیری اجباری است",
       "requiredFields": "لطفاً تمام فیلدهای اجباری را پر کنید"
+    }
+  },
+  "delivery": {
+    "sections": {
+      "form": "فرم پیک",
+      "list": "تیم تحویل",
+      "availability": "ساعت‌های در دسترس بودن"
+    },
+    "fields": {
+      "photo": "تصویر",
+      "firstName": "نام",
+      "lastName": "نام خانوادگی",
+      "phone": "شماره تماس",
+      "email": "ایمیل",
+      "nationalId": "کد ملی",
+      "vehicleType": "نوع وسیله نقلیه",
+      "licensePlate": "شماره پلاک",
+      "zones": "مناطق پوشش",
+      "notes": "یادداشت"
+    },
+    "vehicleTypes": {
+      "bike": "دوچرخه",
+      "scooter": "موتورسیکلت",
+      "car": "خودرو",
+      "foot": "پیاده"
+    },
+    "days": {
+      "sat": "شنبه",
+      "sun": "یکشنبه",
+      "mon": "دوشنبه",
+      "tue": "سه‌شنبه",
+      "wed": "چهارشنبه",
+      "thu": "پنجشنبه",
+      "fri": "جمعه"
+    },
+    "placeholders": {
+      "firstName": "مثلاً علی",
+      "lastName": "مثلاً احمدی",
+      "phone": "مثلاً ۰۹۱۲۳۴۵۶۷۸۹",
+      "email": "مثلاً ali@example.com",
+      "nationalId": "شماره کد ملی",
+      "licensePlate": "مثلاً ۱۲ ایران ۳۴۵",
+      "notes": "یادداشت داخلی درباره این پیک..."
+    },
+    "labels": {
+      "new": "پیک جدید",
+      "edit": "ویرایش",
+      "add": "افزودن پیک",
+      "save": "ذخیره",
+      "saved": "ذخیره شد",
+      "cancelEdit": "انصراف از ویرایش",
+      "delete": "حذف",
+      "confirmDelete": "تأیید حذف؟",
+      "cancel": "انصراف",
+      "noItems": "هنوز پیکی ثبت نشده",
+      "status": "وضعیت",
+      "active": "فعال",
+      "inactive": "غیرفعال",
+      "uploadPhoto": "آپلود تصویر",
+      "changePhoto": "تغییر تصویر",
+      "noZones": "منطقه‌ای انتخاب نشده — همه مناطق را پوشش می‌دهد",
+      "unavailable": "در دسترس نیست",
+      "firstNameRequired": "نام اجباری است",
+      "lastNameRequired": "نام خانوادگی اجباری است",
+      "phoneRequired": "شماره تماس اجباری است",
+      "duplicatePhone": "پیکی با این شماره تماس قبلاً ثبت شده",
+      "requiredFields": "لطفاً تمام فیلدهای اجباری را پر کنید",
+      "viewHistory": "تاریخچه تحویل"
+    },
+    "history": {
+      "title": "تاریخچه تحویل",
+      "empty": "هنوز تحویلی ثبت نشده",
+      "date": "تاریخ",
+      "customer": "مشتری",
+      "address": "آدرس",
+      "amount": "مبلغ",
+      "duration": "مدت زمان رسیدن",
+      "minutesSuffix": "دقیقه",
+      "status": "وضعیت",
+      "statuses": {
+        "delivered": "تحویل داده شد",
+        "cancelled": "لغو شد",
+        "failed": "ناموفق"
+      }
     }
   },
   "menu": {

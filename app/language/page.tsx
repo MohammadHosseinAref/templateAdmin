@@ -192,7 +192,7 @@ export default function LanguagePage() {
               onClick={() => resetAllOverrides(editLang)}
               className="text-xs text-red-500 dark:text-red-400 hover:underline"
             >
-              پاک کردن همه تغییرات
+              {t.languagePage.clearAllChanges}
             </button>
           </div>
 

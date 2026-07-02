@@ -1,12 +1,15 @@
 'use client';
 
 import { useLocale } from '@/contexts/LocaleContext';
+import TodayDeliveryWidget from '@/components/dashboard/TodayDeliveryWidget';
 
 export default function DashboardPage() {
   const t = useLocale();
   return (
-    <div className="flex items-center justify-center h-full min-h-64 text-slate-300 dark:text-slate-600 select-none">
-      <p className="text-sm">{t.dashboard.title}</p>
+    <div className="px-3 pt-2 pb-8">
+      <div className="max-w-sm">
+        <TodayDeliveryWidget />
+      </div>
     </div>
   );
 }
