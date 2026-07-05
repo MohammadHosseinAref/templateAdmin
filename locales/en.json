@@ -30,6 +30,9 @@
     "stock": "Stock",
     "categories": "Food Categories",
     "delivery": "Delivery",
+    "requests": "Requests",
+    "requestsPending": "Pending",
+    "requestsList": "All Requests",
     "settings": "Settings"
   },
   "sidebar": {
@@ -188,7 +191,65 @@
       "baseInfo": "Base Information",
       "stock": "Stock",
       "menu": "Menu",
+      "delivery": "Delivery",
+      "requests": "Requests"
+    }
+  },
+  "requests": {
+    "sections": {
+      "pending": "Pending",
+      "all": "All Requests"
+    },
+    "types": {
+      "food": "Food Order",
+      "reservation": "Reservation",
       "delivery": "Delivery"
+    },
+    "status": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "completed": "Completed"
+    },
+    "labels": {
+      "table": "Table",
+      "guests": "Guests",
+      "date": "Date",
+      "time": "Time",
+      "address": "Address",
+      "total": "Total",
+      "noPending": "No pending requests",
+      "noRequests": "No requests yet",
+      "approve": "Approve",
+      "reject": "Reject",
+      "undo": "Undo",
+      "done": "Done",
+      "phone": "Phone",
+      "notes": "Notes",
+      "zone": "Zone",
+      "viewList": "View all requests",
+      "type": "Type",
+      "customer": "Customer",
+      "details": "Details",
+      "status": "Status",
+      "dateAll": "All dates",
+      "dateToday": "Today",
+      "dateWeek": "This week",
+      "dateMonth": "This month",
+      "reset": "Reset filters",
+      "noFilterResults": "No results match the selected filters",
+      "of": "of",
+      "sendMessage": "Send message",
+      "timeUntil": "Arrival",
+      "messagePlaceholder": "Write your message to the customer...",
+      "send": "Send",
+      "cancel": "Cancel",
+      "messageSent": "Message sent!"
+    },
+    "ago": {
+      "justNow": "Just now",
+      "minutesSuffix": "min ago",
+      "hourSuffix": "h ago"
     }
   },
   "baseInfo": {

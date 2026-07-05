@@ -22,6 +22,24 @@ function SidebarBody({
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [subExpanded, setSubExpanded] = useState<Set<string>>(new Set());
 
+  // Auto-expand the parent nav item whose child matches the current path
+  useEffect(() => {
+    navItems.forEach(({ href, key, children }) => {
+      const itemId = href ?? key;
+      const active = children?.some(
+        (c) => pathname === c.href || c.children?.some((g) => pathname === g.href)
+      );
+      if (active) {
+        setExpanded((prev) => {
+          if (prev.has(itemId)) return prev;
+          const next = new Set(prev);
+          next.add(itemId);
+          return next;
+        });
+      }
+    });
+  }, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
+
   function toggleItem(href: string) {
     setExpanded((prev) => {
       const next = new Set(prev);

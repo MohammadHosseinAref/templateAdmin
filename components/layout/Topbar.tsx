@@ -10,10 +10,36 @@ import { TopbarColorSwatch } from './ui/ColorSwatch';
 import { ICONS } from './data/topbar-data';
 import { getDropdownStyle } from './utils/dropdown-utils';
 import type { TopbarNotification, TopbarProps } from '@/types/layout/topbar';
+import type { LocaleData } from '@/lib/locale';
 import { useLocale } from '@/contexts/LocaleContext';
 import { LANG_NAMES, LANG_FLAGS } from '@/lib/locale';
 
 export type { TopbarNotification, TopbarProps };
+
+type ReqType = 'food' | 'reservation' | 'delivery';
+const NOTIF_TYPES: ReqType[] = ['food', 'reservation', 'delivery'];
+
+function NotifTypeRows({ notifications, t }: { notifications: TopbarNotification[]; t: LocaleData }) {
+  if (notifications.length === 0) {
+    return <p className="px-4 py-6 text-sm text-center text-slate-400 dark:text-slate-500">{t.notifications.empty}</p>;
+  }
+  return (
+    <div className="divide-y divide-slate-100 dark:divide-slate-700">
+      {NOTIF_TYPES.map((rt) => {
+        const count = notifications.filter((n) => n.title.startsWith(t.requests.types[rt])).length;
+        if (count === 0) return null;
+        return (
+          <div key={rt} className="flex items-center justify-between px-4 py-3">
+            <span className="text-sm text-slate-600 dark:text-slate-300">{t.requests.types[rt]}</span>
+            <span className="text-sm font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-700 w-7 h-7 rounded-full flex items-center justify-center">
+              {count}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function Topbar({
   direction, isDark, isFullscreen, fontSize, topbarBg, notificationCount,
@@ -33,8 +59,8 @@ export default function Topbar({
   const [profileStyle, setProfileStyle] = useState<React.CSSProperties>({});
 
   const settingsBtnRef = useRef<HTMLButtonElement>(null);
-  const notifBtnRef = useRef<HTMLButtonElement>(null);
-  const profileBtnRef = useRef<HTMLButtonElement>(null);
+  const notifBtnRef    = useRef<HTMLButtonElement>(null);
+  const profileBtnRef  = useRef<HTMLButtonElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   function openSearch() {
@@ -73,7 +99,7 @@ export default function Topbar({
 
   return (
     <>
-      {/* â”€â”€ Header bar â”€â”€ */}
+      {/* â"€â"€ Header bar â"€â"€ */}
       <header
         className="sticky top-0 z-20 flex items-center gap-2 px-3 sm:px-4 py-2.5 border-b border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md"
         style={headerBg}
@@ -148,8 +174,7 @@ export default function Topbar({
             onClick={toggleNotifications}
             aria-label={t.topbar.notifications}
             className={`relative p-2 rounded-lg transition-colors text-slate-500 dark:text-slate-400
-              ${showNotifications ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400' : 'hover:bg-slate-100 dark:hover:bg-slate-700'}
-            `}
+              ${showNotifications ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400' : 'hover:bg-slate-100 dark:hover:bg-slate-700'}`}
           >
             <Ico d={ICONS.bell} />
             {notificationCount > 0 && (
@@ -190,7 +215,7 @@ export default function Topbar({
         </div>
       </header>
 
-      {/* â”€â”€ Profile dropdown â”€â”€ */}
+      {/* â"€â"€ Profile dropdown â"€â"€ */}
       {showProfile && (
         <DropdownPanel style={profileStyle} onClose={() => setShowProfile(false)}>
           <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-100 dark:border-slate-700">
@@ -223,50 +248,25 @@ export default function Topbar({
         </DropdownPanel>
       )}
 
-      {/* â”€â”€ Notification dropdown â”€â”€ */}
+      {/* ── Notifications dropdown ── */}
       {showNotifications && (
         <DropdownPanel style={notifStyle} onClose={() => setShowNotifications(false)}>
           <div className="flex-shrink-0 px-4 py-3 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
             <p className="text-sm font-bold text-slate-700 dark:text-slate-200">{t.notifications.title}</p>
-            {notifications.length > 0 && (
+            {notificationCount > 0 && (
               <span className="text-xs font-semibold text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 px-2 py-0.5 rounded-full">
-                {notifications.length} {t.notifications.newSuffix}
+                {notificationCount} {t.notifications.newSuffix}
               </span>
             )}
           </div>
 
-          <div className="flex-1 overflow-y-auto settings-scroll">
-            {notifications.length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-10 text-center">
-                <div className="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center mb-3">
-                  <Ico d={ICONS.bell} className="w-5 h-5 text-slate-300 dark:text-slate-500" />
-                </div>
-                <p className="text-sm text-slate-400 dark:text-slate-500">{t.notifications.empty}</p>
-              </div>
-            ) : (
-              notifications.map((notif) => (
-                <div
-                  key={notif.id}
-                  className="flex items-start gap-3 px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors border-b border-slate-100 dark:border-slate-700/50 last:border-0 cursor-pointer"
-                >
-                  <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Ico d={ICONS.bell} className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-slate-700 dark:text-slate-200 leading-snug">{notif.title}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">{notif.subtitle}</p>
-                    <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-1">{notif.time}</p>
-                  </div>
-                  <div className="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" />
-                </div>
-              ))
-            )}
-          </div>
+          <NotifTypeRows notifications={notifications} t={t} />
 
-          {notifications.length > 0 && (
+          {notificationCount > 0 && (
             <div className="flex-shrink-0 border-t border-slate-100 dark:border-slate-700">
               <button
                 type="button"
+                onClick={() => { setShowNotifications(false); router.push('/requests'); }}
                 className="w-full px-4 py-2.5 text-sm text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors font-medium"
               >
                 {t.notifications.viewAll}
@@ -276,7 +276,7 @@ export default function Topbar({
         </DropdownPanel>
       )}
 
-      {/* â”€â”€ Settings dropdown â”€â”€ */}
+      {/* â"€â"€ Settings dropdown â"€â"€ */}
       {showSettings && (
         <DropdownPanel style={settingsStyle} onClose={() => setShowSettings(false)}>
           <div className="flex-shrink-0 px-4 py-2.5 border-b border-slate-100 dark:border-slate-700">

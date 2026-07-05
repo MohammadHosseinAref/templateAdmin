@@ -30,6 +30,9 @@
     "stock": "Stock",
     "categories": "Catégories",
     "delivery": "Livreurs",
+    "requests": "Demandes",
+    "requestsPending": "En attente",
+    "requestsList": "Toutes les demandes",
     "settings": "Paramètres"
   },
   "sidebar": {
@@ -188,7 +191,65 @@
       "baseInfo": "Informations de base",
       "stock": "Stock",
       "menu": "Menu",
+      "delivery": "Livraison",
+      "requests": "Demandes"
+    }
+  },
+  "requests": {
+    "sections": {
+      "pending": "En attente",
+      "all": "Toutes les demandes"
+    },
+    "types": {
+      "food": "Commande",
+      "reservation": "Réservation",
       "delivery": "Livraison"
+    },
+    "status": {
+      "pending": "En attente",
+      "approved": "Approuvée",
+      "rejected": "Refusée",
+      "completed": "Terminée"
+    },
+    "labels": {
+      "table": "Table",
+      "guests": "Couverts",
+      "date": "Date",
+      "time": "Heure",
+      "address": "Adresse",
+      "total": "Total",
+      "noPending": "Aucune demande en attente",
+      "noRequests": "Aucune demande enregistrée",
+      "approve": "Approuver",
+      "reject": "Refuser",
+      "undo": "Annuler",
+      "done": "Terminer",
+      "phone": "Téléphone",
+      "notes": "Notes",
+      "zone": "Zone",
+      "viewList": "Voir toutes",
+      "type": "Type",
+      "customer": "Client",
+      "details": "Détails",
+      "status": "Statut",
+      "dateAll": "Toutes dates",
+      "dateToday": "Aujourd'hui",
+      "dateWeek": "Cette semaine",
+      "dateMonth": "Ce mois",
+      "reset": "Réinitialiser",
+      "noFilterResults": "Aucun résultat pour ces filtres",
+      "of": "sur",
+      "sendMessage": "Envoyer un message",
+      "timeUntil": "Arrivée",
+      "messagePlaceholder": "Écrivez votre message au client...",
+      "send": "Envoyer",
+      "cancel": "Annuler",
+      "messageSent": "Message envoyé !"
+    },
+    "ago": {
+      "justNow": "À l'instant",
+      "minutesSuffix": "min",
+      "hourSuffix": "h"
     }
   },
   "baseInfo": {

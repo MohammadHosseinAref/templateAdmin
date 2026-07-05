@@ -4,7 +4,8 @@
       "Bash(curl -s http://localhost:3000/delivery)",
       "Bash(curl -s http://localhost:3000/delivery -o /tmp/delivery.html)",
       "Bash(curl -s http://localhost:3000/language)",
-      "Bash(curl -s http://localhost:3000/delivery -o /tmp/d2.html -w \"%{http_code}\\\\n\")"
+      "Bash(curl -s http://localhost:3000/delivery -o /tmp/d2.html -w \"%{http_code}\\\\n\")",
+      "Bash(node -e \"const en = require\\('./locales/en.json'\\); console.log\\(JSON.stringify\\(en.requests, null, 2\\)\\)\")"
     ]
   }
 }

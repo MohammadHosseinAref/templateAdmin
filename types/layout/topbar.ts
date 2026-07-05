@@ -1,7 +1,7 @@
 import type { LangCode } from '@/types/settings';
 
 export interface TopbarNotification {
-  id: number;
+  id: string;
   title: string;
   subtitle: string;
   time: string;

@@ -8,6 +8,7 @@ import { type AppSettings, DEFAULTS, SETTINGS_KEY, loadSettings } from '@/types/
 import { type BottomNavItem } from '@/types/layout/bottomnav';
 import { LocaleProvider, useLocale } from '@/contexts/LocaleContext';
 import { CategoriesProvider } from '@/contexts/CategoriesContext';
+import { RequestsProvider, useRequests } from '@/contexts/RequestsContext';
 import { UPLOADED_FONT_KEY, injectUploadedFont } from '@/components/layout/utils/font-utils';
 
 export default function DashboardGroupLayout({ children }: { children: React.ReactNode }) {
@@ -16,9 +17,11 @@ export default function DashboardGroupLayout({ children }: { children: React.Rea
 
   return (
     <LocaleProvider lang={settings.language}>
-      <DashboardShell settings={settings} onSettings={setSettings}>
-        {children}
-      </DashboardShell>
+      <RequestsProvider>
+        <DashboardShell settings={settings} onSettings={setSettings}>
+          {children}
+        </DashboardShell>
+      </RequestsProvider>
     </LocaleProvider>
   );
 }
@@ -33,6 +36,7 @@ function DashboardShell({
   children: React.ReactNode;
 }) {
   const t = useLocale();
+  const { items: reqItems } = useRequests();
   const [hydrated, setHydrated] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showFontPicker, setShowFontPicker] = useState(false);
@@ -103,11 +107,25 @@ function DashboardShell({
     },
   ];
 
+  const notifications = reqItems
+    .filter((r) => r.status === 'pending' || r.status === 'approved')
+    .map((r) => ({
+      id: r.id,
+      title: `${t.requests.types[r.type]} — ${r.customerName}`,
+      subtitle:
+        r.type === 'reservation'
+          ? `${r.date} ${r.time} · ${r.guests} ${t.requests.labels.guests}`
+          : r.type === 'delivery'
+          ? (r.address ?? '')
+          : `${t.requests.labels.table} ${r.tableNumber}`,
+      time: new Date(r.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    }));
+
   return (
     <>
       <DashboardLayout
         settings={settings}
-        notifications={[]}
+        notifications={notifications}
         bottomNavItems={bottomNavItems}
         isFullscreen={isFullscreen}
         onSet={set}

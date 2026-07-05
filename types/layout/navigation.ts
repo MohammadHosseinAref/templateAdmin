@@ -11,7 +11,8 @@ export type SidebarIconKey =
   | 'chevronDown'
   | 'stock'
   | 'categories'
-  | 'delivery';
+  | 'delivery'
+  | 'requests';
 
 export interface GrandItem {
   href: string;

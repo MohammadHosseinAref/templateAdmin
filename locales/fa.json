@@ -30,6 +30,9 @@
     "stock": "انبارداری",
     "categories": "دسته‌بندی غذاها",
     "delivery": "پیک‌های تحویل",
+    "requests": "درخواست‌ها",
+    "requestsPending": "در انتظار",
+    "requestsList": "همه درخواست‌ها",
     "settings": "تنظیمات"
   },
   "sidebar": {
@@ -188,7 +191,65 @@
       "baseInfo": "اطلاعات پایه",
       "stock": "انبارداری",
       "menu": "منو",
-      "delivery": "تحویل"
+      "delivery": "تحویل",
+      "requests": "درخواست‌ها"
+    }
+  },
+  "requests": {
+    "sections": {
+      "pending": "در انتظار",
+      "all": "همه درخواست‌ها"
+    },
+    "types": {
+      "food": "سفارش غذا",
+      "reservation": "رزرو میز",
+      "delivery": "ارسال"
+    },
+    "status": {
+      "pending": "در انتظار",
+      "approved": "تایید شده",
+      "rejected": "رد شده",
+      "completed": "تکمیل شده"
+    },
+    "labels": {
+      "table": "میز",
+      "guests": "نفر",
+      "date": "تاریخ",
+      "time": "ساعت",
+      "address": "آدرس",
+      "total": "مجموع",
+      "noPending": "درخواست در انتظاری وجود ندارد",
+      "noRequests": "هنوز درخواستی ثبت نشده",
+      "approve": "تایید",
+      "reject": "رد کردن",
+      "undo": "برگشت",
+      "done": "پایان",
+      "phone": "تلفن",
+      "notes": "یادداشت",
+      "zone": "منطقه",
+      "viewList": "مشاهده همه",
+      "type": "نوع",
+      "customer": "مشتری",
+      "details": "جزئیات",
+      "status": "وضعیت",
+      "dateAll": "همه تاریخ‌ها",
+      "dateToday": "امروز",
+      "dateWeek": "این هفته",
+      "dateMonth": "این ماه",
+      "reset": "حذف فیلتر",
+      "noFilterResults": "موردی با این فیلترها پیدا نشد",
+      "of": "از",
+      "sendMessage": "ارسال پیام",
+      "timeUntil": "زمان ورود",
+      "messagePlaceholder": "پیام خود را برای مشتری بنویسید...",
+      "send": "ارسال",
+      "cancel": "انصراف",
+      "messageSent": "پیام ارسال شد!"
+    },
+    "ago": {
+      "justNow": "همین الان",
+      "minutesSuffix": "دقیقه پیش",
+      "hourSuffix": "ساعت پیش"
     }
   },
   "baseInfo": {
