@@ -209,7 +209,7 @@ export default function Topbar({
             className={`p-1.5 rounded-xl transition-colors ${showProfile ? 'bg-slate-100 dark:bg-slate-700' : 'hover:bg-slate-100 dark:hover:bg-slate-700'}`}
           >
             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center shadow-sm">
-              <span className="text-white font-bold text-sm">Ù…</span>
+              <span className="text-white font-bold text-sm">A</span>
             </div>
           </button>
         </div>
@@ -220,7 +220,7 @@ export default function Topbar({
         <DropdownPanel style={profileStyle} onClose={() => setShowProfile(false)}>
           <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-100 dark:border-slate-700">
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center flex-shrink-0 shadow-sm">
-              <span className="text-white font-bold text-base">Ù…</span>
+              <span className="text-white font-bold text-base">A</span>
             </div>
             <div>
               <p className="text-sm font-semibold text-slate-700 dark:text-slate-100 leading-none">{t.topbar.adminName}</p>

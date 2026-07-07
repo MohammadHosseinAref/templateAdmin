@@ -12,7 +12,9 @@ export type SidebarIconKey =
   | 'stock'
   | 'categories'
   | 'delivery'
-  | 'requests';
+  | 'requests'
+  | 'messages'
+  | 'ticket';
 
 export interface GrandItem {
   href: string;

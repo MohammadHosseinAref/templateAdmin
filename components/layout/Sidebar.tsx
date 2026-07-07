@@ -8,6 +8,8 @@ import { SidebarColorSwatch } from './ui/ColorSwatch';
 import { PATHS, getNavItems } from './data/sidebar-data';
 import type { SidebarProps, SidebarBodyProps } from '@/types/layout/sidebar';
 import { useLocale } from '@/contexts/LocaleContext';
+import { useConversations } from '@/contexts/ConversationsContext';
+import { useTickets } from '@/contexts/TicketsContext';
 
 export type { SidebarProps };
 
@@ -21,6 +23,15 @@ function SidebarBody({
   const navItems = getNavItems(t);
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
   const [subExpanded, setSubExpanded] = useState<Set<string>>(new Set());
+
+  const { conversations } = useConversations();
+  const { tickets } = useTickets();
+  const msgUnread = conversations.reduce((s, c) => s + c.unreadCount, 0);
+  const tktUnread = tickets.filter((tk) => tk.unreadCount > 0).length;
+  const badges: Record<string, number> = {
+    '/messages': msgUnread,
+    '/tickets':  tktUnread,
+  };
 
   // Auto-expand the parent nav item whose child matches the current path
   useEffect(() => {
@@ -148,14 +159,30 @@ function SidebarBody({
                     href={href}
                     onClick={onLinkClick}
                     title={isCollapsed ? label : undefined}
-                    className={`flex items-center gap-3 rounded-xl mb-0.5 transition-all duration-150
+                    className={`relative flex items-center gap-3 rounded-xl mb-0.5 transition-all duration-150
                       ${isCollapsed ? 'justify-center py-3 px-0' : 'py-2.5 px-3'}
                       ${isActive ? 'bg-teal-500' : 'hover:bg-white/10 active:bg-white/15'}
                     `}
                     style={{ color: isActive ? '#ffffff' : textColor }}
                   >
-                    <Ico d={PATHS[key]} strokeWidth={1.6} />
-                    {!isCollapsed && <span className="flex-1 text-sm font-medium truncate">{label}</span>}
+                    <span className="relative flex-shrink-0">
+                      <Ico d={PATHS[key]} strokeWidth={1.6} />
+                      {isCollapsed && !!badges[href] && (
+                        <span className="absolute -top-1 -end-1 min-w-[14px] h-3.5 px-0.5 rounded-full bg-rose-500 text-white text-[8px] font-bold flex items-center justify-center tabular-nums leading-none">
+                          {badges[href] > 9 ? '9+' : badges[href]}
+                        </span>
+                      )}
+                    </span>
+                    {!isCollapsed && (
+                      <>
+                        <span className="flex-1 text-sm font-medium truncate">{label}</span>
+                        {!!badges[href] && (
+                          <span className="ms-auto min-w-[18px] h-[18px] px-1 rounded-full bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center tabular-nums leading-none flex-shrink-0">
+                            {badges[href] > 99 ? '99+' : badges[href]}
+                          </span>
+                        )}
+                      </>
+                    )}
                   </Link>
                 ) : null}
 

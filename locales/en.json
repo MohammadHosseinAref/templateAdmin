@@ -1,9 +1,9 @@
 {
   "app": {
-    "name": "SmartDine",
+    "name": "AdminDashboard",
     "subtitle": "Control Panel",
-    "fullName": "SmartDine CP",
-    "metaTitle": "SmartDine CP — Restaurant Management Panel",
+    "fullName": "AdminDashboard CP",
+    "metaTitle": "AdminDashboard CP — Restaurant Management Panel",
     "metaDescription": "Restaurant reservation and order management system"
   },
   "nav": {
@@ -33,6 +33,8 @@
     "requests": "Requests",
     "requestsPending": "Pending",
     "requestsList": "All Requests",
+    "messages": "Messages",
+    "tickets": "Tickets",
     "settings": "Settings"
   },
   "sidebar": {
@@ -129,7 +131,7 @@
     "alreadyCancelled": "This reservation has been cancelled"
   },
   "notFound": {
-    "metaTitle": "404 — Page Not Found | SmartDine CP",
+    "metaTitle": "404 — Page Not Found | AdminDashboard CP",
     "metaDescription": "The page you were looking for does not exist.",
     "heading": "Page Not Found",
     "descriptionPart1": "The page you were looking for doesn't exist,",
@@ -157,7 +159,7 @@
     "livePreviewText": "Restaurant management — reservations, menu, daily sales report",
     "apply": "Apply Font",
     "cancel": "Cancel",
-    "previewText": "Hello, Welcome — SmartDine 1234",
+    "previewText": "Hello, Welcome — AdminDashboard 1234",
     "defaultFontName": "Default — Vazirmatn"
   },
   "languagePage": {
@@ -250,6 +252,74 @@
       "justNow": "Just now",
       "minutesSuffix": "min ago",
       "hourSuffix": "h ago"
+    }
+  },
+  "tickets": {
+    "title": "Tickets",
+    "newTicket": "New Ticket",
+    "noTickets": "No tickets",
+    "noResults": "No results found",
+    "selectTicket": "Select a ticket",
+    "replyPlaceholder": "Write a reply...",
+    "send": "Send",
+    "submit": "Submit Ticket",
+    "cancel": "Cancel",
+    "filterAll": "All",
+    "fields": {
+      "subject": "Subject",
+      "description": "Description",
+      "type": "Category",
+      "priority": "Priority",
+      "submittedBy": "Submitted by",
+      "phone": "Phone"
+    },
+    "placeholders": {
+      "subject": "Ticket subject...",
+      "description": "Describe the issue or request...",
+      "submittedBy": "Submitter name",
+      "phone": "Phone (optional)"
+    },
+    "types": {
+      "support": "Support",
+      "complaint": "Complaint",
+      "internal": "Internal"
+    },
+    "statuses": {
+      "open": "Open",
+      "in_progress": "In Progress",
+      "closed": "Closed"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "Urgent"
+    },
+    "labels": {
+      "from": "From",
+      "admin": "Admin",
+      "noReplies": "No replies yet",
+      "close": "Close Ticket",
+      "reopen": "Reopen",
+      "subjectRequired": "Subject is required",
+      "descriptionRequired": "Description is required",
+      "submittedByRequired": "Submitter name is required"
+    }
+  },
+  "customers": {
+    "title": "Customers",
+    "searchPlaceholder": "Search by name or phone...",
+    "noCustomers": "No customers yet",
+    "noResults": "No results found",
+    "labels": {
+      "name": "Name",
+      "phone": "Phone",
+      "services": "Services",
+      "requests": "Requests",
+      "totalSpend": "Total Spend",
+      "lastActivity": "Last Activity",
+      "message": "Message",
+      "currency": "€",
+      "filterAll": "All"
     }
   },
   "baseInfo": {

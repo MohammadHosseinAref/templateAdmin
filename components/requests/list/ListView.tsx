@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useLocale } from '@/contexts/LocaleContext';
 import type { Request } from '@/types/requests';
 import { STATUS_STYLE, TYPE_COLORS } from '../helpers';
 import dayjs from '@/lib/dayjs';
+import { useConversations } from '@/contexts/ConversationsContext';
 
 import ListFilter from './Filter';
 import DetailModal from './DetailModal';
@@ -17,6 +19,13 @@ const PAGE_SIZE = 5;
 export default function ListView({ items }: ListViewProps) {
   const t  = useLocale();
   const tr = t.requests;
+  const router = useRouter();
+  const { findOrCreate } = useConversations();
+
+  const handleMessage = (req: Request) => {
+    const id = findOrCreate(req.customerName, req.phone);
+    router.push(`/messages?id=${id}`);
+  };
 
   const [selected,     setSelected]     = useState<Request | null>(null);
   const [filterType,   setFilterType]   = useState<FilterType>('all');
@@ -137,6 +146,7 @@ export default function ListView({ items }: ListViewProps) {
                           <button
                             type="button"
                             title={tr.labels.sendMessage}
+                            onClick={() => handleMessage(req)}
                             className="w-7 h-7 rounded-lg flex items-center justify-center text-slate-400 dark:text-slate-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
                           >
                             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">

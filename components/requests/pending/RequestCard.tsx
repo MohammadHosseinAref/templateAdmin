@@ -1,17 +1,24 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import type { RequestCardProps } from '@/types/requests';
 import { timeAgo, TYPE_COLORS, TypeIcon } from '../helpers';
 import dayjs from '@/lib/dayjs';
-import MessageModal from './MessageModal';
+import { useConversations } from '@/contexts/ConversationsContext';
 
 export default function RequestCard({ request, t, onApprove, onReject, onUndo, onDone }: RequestCardProps) {
   const tr    = t.requests;
   const c     = TYPE_COLORS[request.type];
   const total = request.items?.reduce((s, i) => s + i.price * i.qty, 0) ?? 0;
-  const [showMessage, setShowMessage] = useState(false);
-  const [removing,    setRemoving]    = useState(false);
+  const [removing, setRemoving] = useState(false);
+  const router       = useRouter();
+  const { findOrCreate } = useConversations();
+
+  const handleMessage = () => {
+    const id = findOrCreate(request.customerName, request.phone);
+    router.push(`/messages?id=${id}`);
+  };
 
   const animateThen = (fn: () => void) => {
     setRemoving(true);
@@ -186,7 +193,7 @@ export default function RequestCard({ request, t, onApprove, onReject, onUndo, o
         </div>
         <button
           type="button"
-          onClick={() => setShowMessage(true)}
+          onClick={handleMessage}
           className="w-full py-2 rounded-xl border border-blue-200 dark:border-blue-800 text-blue-500 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 text-sm font-semibold flex items-center justify-center gap-1.5 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -198,10 +205,6 @@ export default function RequestCard({ request, t, onApprove, onReject, onUndo, o
 
     </div>
     </div>
-
-    {showMessage && (
-      <MessageModal request={request} onClose={() => setShowMessage(false)} />
-    )}
     </>
   );
 }

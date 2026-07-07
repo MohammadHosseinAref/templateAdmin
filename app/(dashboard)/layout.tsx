@@ -9,6 +9,9 @@ import { type BottomNavItem } from '@/types/layout/bottomnav';
 import { LocaleProvider, useLocale } from '@/contexts/LocaleContext';
 import { CategoriesProvider } from '@/contexts/CategoriesContext';
 import { RequestsProvider, useRequests } from '@/contexts/RequestsContext';
+import { ConversationsProvider } from '@/contexts/ConversationsContext';
+import { MessagesProvider } from '@/contexts/MessagesContext';
+import { TicketsProvider } from '@/contexts/TicketsContext';
 import { UPLOADED_FONT_KEY, injectUploadedFont } from '@/components/layout/utils/font-utils';
 
 export default function DashboardGroupLayout({ children }: { children: React.ReactNode }) {
@@ -18,9 +21,15 @@ export default function DashboardGroupLayout({ children }: { children: React.Rea
   return (
     <LocaleProvider lang={settings.language}>
       <RequestsProvider>
-        <DashboardShell settings={settings} onSettings={setSettings}>
-          {children}
-        </DashboardShell>
+        <ConversationsProvider>
+        <MessagesProvider>
+          <TicketsProvider>
+            <DashboardShell settings={settings} onSettings={setSettings}>
+              {children}
+            </DashboardShell>
+          </TicketsProvider>
+        </MessagesProvider>
+        </ConversationsProvider>
       </RequestsProvider>
     </LocaleProvider>
   );

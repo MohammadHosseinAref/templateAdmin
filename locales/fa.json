@@ -1,9 +1,9 @@
 {
   "app": {
-    "name": "SmartDine",
+    "name": "AdminDashboard",
     "subtitle": "Control Panel",
-    "fullName": "SmartDine CP",
-    "metaTitle": "SmartDine CP — پنل مدیریت رستوران",
+    "fullName": "AdminDashboard CP",
+    "metaTitle": "AdminDashboard CP — پنل مدیریت رستوران",
     "metaDescription": "سیستم مدیریت رزرو و سفارش رستوران"
   },
   "nav": {
@@ -33,6 +33,8 @@
     "requests": "درخواست‌ها",
     "requestsPending": "در انتظار",
     "requestsList": "همه درخواست‌ها",
+    "messages": "پیام‌ها",
+    "tickets": "تیکت‌ها",
     "settings": "تنظیمات"
   },
   "sidebar": {
@@ -129,7 +131,7 @@
     "alreadyCancelled": "این رزرو لغو شده است"
   },
   "notFound": {
-    "metaTitle": "۴۰۴ — صفحه یافت نشد | SmartDine CP",
+    "metaTitle": "۴۰۴ — صفحه یافت نشد | AdminDashboard CP",
     "metaDescription": "صفحه‌ای که دنبالش می‌گردید وجود ندارد.",
     "heading": "صفحه یافت نشد",
     "descriptionPart1": "صفحه‌ای که دنبالش می‌گردید وجود ندارد،",
@@ -157,7 +159,7 @@
     "livePreviewText": "پنل مدیریت رستوران — رزرو میز، مدیریت منو، گزارش فروش روزانه",
     "apply": "اعمال فونت",
     "cancel": "انصراف",
-    "previewText": "سلام، خوش آمدید — SmartDine ۱۲۳۴",
+    "previewText": "سلام، خوش آمدید — AdminDashboard ۱۲۳۴",
     "defaultFontName": "پیش‌فرض — Vazirmatn"
   },
   "languagePage": {
@@ -250,6 +252,74 @@
       "justNow": "همین الان",
       "minutesSuffix": "دقیقه پیش",
       "hourSuffix": "ساعت پیش"
+    }
+  },
+  "tickets": {
+    "title": "تیکت‌ها",
+    "newTicket": "تیکت جدید",
+    "noTickets": "تیکتی وجود ندارد",
+    "noResults": "نتیجه‌ای یافت نشد",
+    "selectTicket": "یک تیکت را انتخاب کنید",
+    "replyPlaceholder": "پاسخ خود را بنویسید...",
+    "send": "ارسال",
+    "submit": "ثبت تیکت",
+    "cancel": "انصراف",
+    "filterAll": "همه",
+    "fields": {
+      "subject": "موضوع",
+      "description": "توضیحات",
+      "type": "دسته",
+      "priority": "اولویت",
+      "submittedBy": "ثبت‌کننده",
+      "phone": "شماره تماس"
+    },
+    "placeholders": {
+      "subject": "موضوع تیکت...",
+      "description": "مشکل یا درخواست خود را شرح دهید...",
+      "submittedBy": "نام ثبت‌کننده",
+      "phone": "شماره تماس (اختیاری)"
+    },
+    "types": {
+      "support": "پشتیبانی",
+      "complaint": "شکایت",
+      "internal": "داخلی"
+    },
+    "statuses": {
+      "open": "باز",
+      "in_progress": "در بررسی",
+      "closed": "بسته"
+    },
+    "priorities": {
+      "low": "کم",
+      "medium": "متوسط",
+      "high": "فوری"
+    },
+    "labels": {
+      "from": "از",
+      "admin": "مدیر",
+      "noReplies": "هنوز پاسخی ثبت نشده",
+      "close": "بستن تیکت",
+      "reopen": "باز کردن مجدد",
+      "subjectRequired": "موضوع اجباری است",
+      "descriptionRequired": "توضیحات اجباری است",
+      "submittedByRequired": "نام ثبت‌کننده اجباری است"
+    }
+  },
+  "customers": {
+    "title": "مشتریان",
+    "searchPlaceholder": "جستجو با نام یا شماره...",
+    "noCustomers": "هنوز مشتری‌ای ثبت نشده",
+    "noResults": "نتیجه‌ای پیدا نشد",
+    "labels": {
+      "name": "نام",
+      "phone": "تلفن",
+      "services": "خدمات",
+      "requests": "درخواست‌ها",
+      "totalSpend": "مجموع پرداخت",
+      "lastActivity": "آخرین فعالیت",
+      "message": "پیام",
+      "currency": "€",
+      "filterAll": "همه"
     }
   },
   "baseInfo": {

@@ -1,15 +1,25 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useLocale } from '@/contexts/LocaleContext';
 import type { DetailModalProps } from '@/types/requests';
 import { TYPE_COLORS } from '../helpers';
 import dayjs from '@/lib/dayjs';
+import { useConversations } from '@/contexts/ConversationsContext';
 
 export default function DetailModal({ req, onClose }: DetailModalProps) {
   const t  = useLocale();
   const tr = t.requests;
   const c  = TYPE_COLORS[req.type];
+  const router = useRouter();
+  const { findOrCreate } = useConversations();
+
+  const handleMessage = () => {
+    const id = findOrCreate(req.customerName, req.phone);
+    onClose();
+    router.push(`/messages?id=${id}`);
+  };
   const total   = req.items?.reduce((s, i) => s + i.price * i.qty, 0);
   const created = dayjs(req.createdAt);
 
@@ -152,6 +162,7 @@ export default function DetailModal({ req, onClose }: DetailModalProps) {
             <button
               type="button"
               title={tr.labels.sendMessage}
+              onClick={handleMessage}
               className="flex items-center gap-1.5 text-xs font-semibold text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/40 px-3 py-1.5 rounded-lg transition-colors"
             >
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
